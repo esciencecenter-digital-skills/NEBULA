@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: '/NEBULA/'
-  }
+  },
   generate:{
       nojekyll: true,
       fallback: '404.html'
