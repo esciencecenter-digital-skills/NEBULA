@@ -8,5 +8,10 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
   },
-  ssr: false
+  generate:{
+      nojekyll: true,
+      fallback: '404.html'
+  },
+  ssr: false,
+  target: "static"
 })
