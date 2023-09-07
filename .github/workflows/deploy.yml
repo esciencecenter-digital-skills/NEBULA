@@ -27,7 +27,12 @@ jobs:
       - name: Generate
         run: npx nuxi generate
       - name: Check generated contents
-        run: cd ./.output/server && pwd && ls -la
+        run: |
+          pwd
+          ls -la
+          cd ./.output/server
+          pwd
+          ls -la
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
