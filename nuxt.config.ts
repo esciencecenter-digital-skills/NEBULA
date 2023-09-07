@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
   },
+  app: {
+    baseURL: '/NEBULA/'
+  }
   generate:{
       nojekyll: true,
       fallback: '404.html'
