@@ -30,11 +30,11 @@ jobs:
         run: |
           pwd
           ls -la
-          cd ./.output/server
+          cd .output/public
           pwd
           ls -la
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.output/server
+          publish_dir: ./.output/public
