@@ -25,10 +25,7 @@ jobs:
         run: npm ci
 
       - name: Generate
-        run: |
-          npm run build
-          npx nuxi generate
-        
+        run: npm run generate
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
