@@ -8,5 +8,13 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
   },
-  ssr: false
+  app: {
+    baseURL: '/NEBULA/'
+  },
+  generate:{
+      nojekyll: true,
+      fallback: '404.html'
+  },
+  ssr: true,
+  target: "static"
 })
