@@ -20,5 +20,9 @@ export default defineNuxtConfig({
       fallback: '404.html'
   },
   ssr: true,
-  target: "static"
+  target: "static",
+
+  experimental: {
+    renderJsonPayloads: true
+  },
 })
