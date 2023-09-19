@@ -1,6 +1,9 @@
 <template>
     <main>
+        <Banner />
         <ContentDoc />
-        This is the main page.
+        Testing import from the config file: {{ $config.another }}
     </main>
 </template>
+<script>
+</script>

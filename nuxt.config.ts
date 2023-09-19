@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import config from './config.json'
+
 export default defineNuxtConfig({
+  runtimeConfig: config,
+
   devtools: { enabled: true,
               pages: true },
   modules: [
@@ -11,7 +15,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/NEBULA/'
   },
-  generate:{
+  generate: {
       nojekyll: true,
       fallback: '404.html'
   },
