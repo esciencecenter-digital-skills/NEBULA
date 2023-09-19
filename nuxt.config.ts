@@ -1,8 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import config from './config.json'
+import { myConfig } from './config.json'
 
 export default defineNuxtConfig({
-  runtimeConfig: config,
+  runtimeConfig: { 
+    public: myConfig, 
+    }
+  ,
 
   devtools: { enabled: true,
               pages: true },
