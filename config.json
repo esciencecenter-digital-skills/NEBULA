@@ -1,5 +1,5 @@
 {
-    "myConfig":
+    "publicProps":
     {
     "title": "Essentials for Research Software Support",
     "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Resources", "Examples"],

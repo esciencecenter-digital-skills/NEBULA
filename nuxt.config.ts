@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { myConfig } from './config.json'
+import { publicProps } from './config.json'
 
 export default defineNuxtConfig({
   runtimeConfig: { 
-    public: myConfig, 
+    public: publicProps, 
     }
   ,
 
