@@ -22,7 +22,4 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  experimental: {
-    renderJsonPayloads: true
-  },
 })
