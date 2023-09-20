@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { publicProps } from './config.json'
+
 export default defineNuxtConfig({
+  runtimeConfig: { 
+    public: publicProps, 
+    }
+  ,
+
   devtools: { enabled: true,
               pages: true },
   modules: [
@@ -11,10 +18,11 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/NEBULA/'
   },
-  generate:{
+  generate: {
       nojekyll: true,
       fallback: '404.html'
   },
   ssr: true,
-  target: "static"
+  target: "static",
+
 })

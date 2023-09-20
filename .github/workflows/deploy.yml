@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - design-update
   workflow_dispatch:
 
 jobs:
