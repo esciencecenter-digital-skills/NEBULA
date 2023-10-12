@@ -8,7 +8,7 @@ message: >-
   metadata from this file.
 type: software
 authors:
-  - given-names: Barrbara
+  - given-names: Barbara
     family-names: Vreede
     email: b.vreede@gmail.com
     orcid: 'https://orcid.org/0000-0002-5023-4601'
