@@ -31,9 +31,13 @@ jobs:
           ls -la
           cd ./NEBULA
           ls -la
+          cd -
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          pwd
+          ls -la
+          npm ci
 
       - name: Checkout
         uses: actions/checkout@v3
