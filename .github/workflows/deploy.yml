@@ -37,6 +37,7 @@ jobs:
         run: |
           pwd
           ls -la
+          cd NEBULA
           npm ci
 
       - name: Checkout
