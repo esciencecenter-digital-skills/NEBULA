@@ -63,6 +63,7 @@ jobs:
         run: |
           pwd
           ls -la
+          cd NEBULA
           cd .output/public
           pwd
           ls -la
@@ -71,4 +72,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.output/public
+          publish_dir: ./NEBULA/.output/public
