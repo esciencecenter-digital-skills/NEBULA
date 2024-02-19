@@ -43,10 +43,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          path: /NEBULA/content
+          path: ./NEBULA/content
 
       - name: Generate
-        run: npx nuxi generate
+        run: |
+          cd NEBULA
+          npx nuxi generate
 
       - name: Check generated contents
         run: |
