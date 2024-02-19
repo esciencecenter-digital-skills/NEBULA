@@ -25,6 +25,13 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Check contents
+        run: |
+          pwd
+          ls -la
+          cd ./NEBULA
+          ls -la
+
       - name: Install dependencies
         run: npm ci
 
@@ -32,11 +39,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: /NEBULA/content
-
-      - name: Check contents
-        run: |
-          pwd
-          ls -la
 
       - name: Generate
         run: npx nuxi generate
