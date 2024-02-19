@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: esciencecenter-digital-skills/NEBULA
-          path: /NEBULA
+          path: ./NEBULA
 
       - name: Setup node env
         uses: actions/setup-node@v3
