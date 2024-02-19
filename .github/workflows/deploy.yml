@@ -45,6 +45,15 @@ jobs:
         with:
           path: ./NEBULA/content
 
+      - name: Check contents of Nebula/content
+        run: |
+          pwd
+          ls -la
+          cd ./NEBULA
+          ls -la
+          cd content
+          ls -la
+
       - name: Generate
         run: |
           cd NEBULA
