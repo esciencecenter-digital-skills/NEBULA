@@ -30,7 +30,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-        path: /NEBULA/content
+        with:
+          path: /NEBULA/content
 
       - name: Check contents
         run: |
