@@ -1,10 +1,11 @@
 name: Deploy to gh-pages
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      content-repo: 
+        required: true
+        type: string
 
 jobs:
   build_and_deploy:
@@ -15,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          repository: esciencecenter-digital-skills/NEBULA
+          path: /NEBULA
 
       - name: Setup node env
         uses: actions/setup-node@v3
@@ -24,8 +28,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Checkout
+        uses: actions/checkout@v3
+        path: /NEBULA/content
+
+      - name: Check contents
+        run: |
+          pwd
+          ls -la
+
       - name: Generate
         run: npx nuxi generate
+
       - name: Check generated contents
         run: |
           pwd
@@ -33,6 +47,7 @@ jobs:
           cd .output/public
           pwd
           ls -la
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
