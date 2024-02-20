@@ -1,3 +1,3 @@
-# Demo lesson
+# Demo module
 
-This is a demo lesson.
+This is a demo module.

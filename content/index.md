@@ -1,5 +1,5 @@
-# Hello world
+#  Dummy demo platform
 
-Here is some markdown content.
+This website is just a dummy example platform for the NEBULA framework. For more information see https://github.com/esciencecenter-digital-skills/NEBULA/.
 
 [Demo lesson link](/lessons/demo)
