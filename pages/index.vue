@@ -15,7 +15,7 @@
             :title="story.title"
             :author="story.author"
             :thumbnail="`/modules/${story.slug}/${story.thumbnail}`"
-            :url="`/modules/${$route.params.module}`"
+            :url="`/modules/${story.slug}`"
             />
         </div>
       </div>
