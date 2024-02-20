@@ -15,8 +15,8 @@
             :title="story.title"
             :author="story.author"
             :thumbnail="`modules/${story.slug}/${story.thumbnail}`"
-            :url="`content/modules/${story.slug}`"
-          />
+            :url="story.slug"
+            />
         </div>
       </div>
       <Footer />

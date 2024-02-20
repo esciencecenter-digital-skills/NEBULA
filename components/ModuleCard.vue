@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="url">
+  <!-- <NuxtLink :to="url"> -->
     <!-- relative parent needed for absolute positioning of svg badges-->
     <div class="relative">
       <div class="flex flex-row bg-eScienceWhite shadow-xl max-w-xl rounded-bl-3xl rounded-tr-3xl h-48">
@@ -12,7 +12,7 @@
         <img :src="thumbnail" alt="module icon" class="max-w-xs rounded-tr-3xl">
       </div>
     </div>
-  </NuxtLink>
+  <!-- </NuxtLink> -->
 </template>
 
 <script>
