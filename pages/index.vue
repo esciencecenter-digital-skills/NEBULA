@@ -9,14 +9,14 @@
             {{ category }}
           </h2>
           <!-- stories -->
-          <ModuleCard
+          <!-- <ModuleCard
             v-for="story in [{'id': 4, 'slug': 'demo', 'title': 'Demo', 'author': 'Robin', 'thumbnail': 'nlesc-dummy.png', 'category': 'Examples', 'visibility': True}]"
             :key="story.id"
             :title="story.title"
             :author="story.author"
-            :thumbnail="`modules/_${story.slug}/${story.thumbnail}`"
+            :thumbnail="`modules/${story.slug}/${story.thumbnail}`"
             :url="story.slug"
-          />
+          /> -->
         </div>
       </div>
       <Footer />
