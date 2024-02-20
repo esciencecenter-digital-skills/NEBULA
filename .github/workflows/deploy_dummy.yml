@@ -8,8 +8,7 @@ on:
 
 jobs:
   deploy_with_NEBULA:
-
-    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@main
+    uses: ./.github/workflows/deploy.yml
 
 
 
