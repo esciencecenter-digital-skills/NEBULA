@@ -65,6 +65,7 @@ jobs:
           cd content
           ls -la
 
+
       - name: Generate
         run: |
           cd NEBULA
@@ -75,8 +76,13 @@ jobs:
           pwd
           ls -la
           cd NEBULA
+          pwd
           cd .output/public
           pwd
+          ls -la
+          cd modules
+          ls -la
+          cd demo
           ls -la
 
       - name: Deploy
