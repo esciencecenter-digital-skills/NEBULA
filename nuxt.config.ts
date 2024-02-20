@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { publicProps } from './config.json'
+import tailwindTypography from '@tailwindcss/typography'
+
 
 export default defineNuxtConfig({
   runtimeConfig: { 
