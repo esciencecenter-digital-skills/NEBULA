@@ -15,7 +15,7 @@
             :title="story.title"
             :author="story.author"
             :thumbnail="`modules/${story.slug}/${story.thumbnail}`"
-            :url="story.slug"
+            :url="`https://nuxt.com/`"
             />
         </div>
       </div>
