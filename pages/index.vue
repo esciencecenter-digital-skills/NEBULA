@@ -14,7 +14,7 @@
             :key="story.id"
             :title="story.title"
             :author="story.author"
-            :thumbnail="`./content/modules/${story.slug}/${story.thumbnail}`"
+            :thumbnail="`/modules/${story.slug}/${story.thumbnail}`"
             :url="`https://nuxt.com/`"
             />
         </div>
