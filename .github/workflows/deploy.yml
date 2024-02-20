@@ -3,8 +3,8 @@ name: Deploy to gh-pages
 on:
   workflow_call:
     inputs:
-      content-repo: 
-        required: true
+      content_repo: 
+        required: false
         type: string
 
 jobs:
@@ -13,6 +13,7 @@ jobs:
 
     permissions:
       contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,8 +42,10 @@ jobs:
           npm ci
 
       - name: Checkout
+        if: ${{ inputs.content_repo != '' }}
         uses: actions/checkout@v3
         with:
+          repository: ${{ inputs.content_repo }}
           path: ./NEBULA/content
 
       - name: Check contents of Nebula/content
