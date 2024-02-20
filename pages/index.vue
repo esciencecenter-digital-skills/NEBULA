@@ -9,7 +9,7 @@
             {{ category }}
           </h2>
           <!-- stories -->
-          <StoryCard
+          <ModuleCard
             v-for="story in [{'id': 4, 'slug': 'yolo', 'title': 'yolo', 'author': '', 'thumbnail': '', 'category': 'Examples', 'visibility': True}]"
             :key="story.id"
             :title="story.title"
