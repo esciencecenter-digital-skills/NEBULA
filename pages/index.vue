@@ -8,15 +8,15 @@
           <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
             {{ category }}
           </h2>
-          <!-- stories -->
-          <!-- <ModuleCard
+          <!-- modules -->
+          <ModuleCard
             v-for="story in [{'id': 4, 'slug': 'demo', 'title': 'Demo', 'author': 'Robin', 'thumbnail': 'nlesc-dummy.png', 'category': 'Examples', 'visibility': True}]"
             :key="story.id"
             :title="story.title"
             :author="story.author"
             :thumbnail="`modules/${story.slug}/${story.thumbnail}`"
-            :url="story.slug"
-          /> -->
+            :url="`NEBULA/content/modules/${story.slug}`"
+          />
         </div>
       </div>
       <Footer />
