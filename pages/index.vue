@@ -10,7 +10,7 @@
           </h2>
           <!-- stories -->
           <ModuleCard
-            v-for="story in [{'id': 4, 'slug': 'yolo', 'title': 'yolo', 'author': '', 'thumbnail': '', 'category': 'Examples', 'visibility': True}]"
+            v-for="story in [{'id': 4, 'slug': 'demo', 'title': 'Demo', 'author': 'Robin', 'thumbnail': 'nlesc-dummy.png', 'category': 'Examples', 'visibility': True}]"
             :key="story.id"
             :title="story.title"
             :author="story.author"
