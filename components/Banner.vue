@@ -8,7 +8,7 @@
     <div class="flex font-display font-semibold pt-12 pl-10">
       <div v-if="$route.path === '/'">
         <h1 class="text-4xl text-eSciencePurple">
-          {{ $config.public.title }} Lessons
+          {{ $config.public.title }} Modules
         </h1>
       </div>
     </div>
