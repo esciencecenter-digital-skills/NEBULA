@@ -14,7 +14,7 @@
             :key="story.id"
             :title="story.title"
             :author="story.author"
-            :thumbnail="`public/${story.slug}/${story.thumbnail}`"
+            :thumbnail="`${story.slug}/${story.thumbnail}`"
             :url="`/modules/${story.slug}`"
             />
         </div>
