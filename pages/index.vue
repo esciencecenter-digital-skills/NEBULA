@@ -15,7 +15,7 @@
             :title="story.title"
             :author="story.author"
             :thumbnail="`modules/${story.slug}/${story.thumbnail}`"
-            :url="`NEBULA/content/modules/${story.slug}`"
+            :url="`content/modules/${story.slug}`"
           />
         </div>
       </div>
