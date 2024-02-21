@@ -20,7 +20,7 @@
                     :key="thing.id"
                     :title="thing.title"
                     :author="thing.author"
-                    :thumbnail="`${thing._path}/media/${thing.thumbnail}`"
+                    :thumbnail="`/NEBULA/${thing._path}/media/${thing.thumbnail}`"
                     :url="thing._path"
                 />
             </ContentList>
