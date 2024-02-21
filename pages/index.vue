@@ -13,16 +13,16 @@
                 <div v-for="thing in list" :key="thing.id">
                     <h4>{{ thing.title }}</h4>
                     <p>{{ thing }}</p>
-                    <img :src="`/modules/${thing.slug}/media/${thing.thumbnail}`" alt="module icon" class="max-w-xs rounded-tr-3xl">
+                    <img :src="`${thing._path}/media/${thing.thumbnail}`" alt="module icon" class="max-w-xs rounded-tr-3xl">
                 </div>
 
-                <!-- <ModuleCard v-for="thing in list"
+                <ModuleCard v-for="thing in list"
                     :key="thing.id"
                     :title="thing.title"
                     :author="thing.author"
-                    :thumbnail="`media/${thing.thumbnail}`"
-                    :url="`/modules/${thing.slug}`"
-                /> -->
+                    :thumbnail="`${thing._path}/media/${thing.thumbnail}`"
+                    :url="thing._path"
+                />
             </ContentList>
         </div>
         </div>

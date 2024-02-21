@@ -1,6 +1,7 @@
 ---
 id: 0
 trl: medium
+slug: demo
 category: Reusability
 title: Demo
 author: eScience Center

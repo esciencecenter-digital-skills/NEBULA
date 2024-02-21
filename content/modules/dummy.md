@@ -1,6 +1,7 @@
 ---
 id: 0
 trl: medium
+slug: dummy
 category: Getting Started
 title: Dummy
 author: eScience Center
