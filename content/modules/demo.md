@@ -1,7 +1,7 @@
 ---
 id: 0
 trl: medium
-category: Publishing & Citing
+category: Reusability
 title: Demo
 author: eScience Center
 thumbnail: "nlesc-dummy.png"

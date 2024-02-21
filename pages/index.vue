@@ -4,24 +4,24 @@
         <input v-model="query" type="search" class="w-2/3 mt-4 mr-4 p-2 self-end" placeholder="search">
         <div class="flex flex-col pt-4 pb-6 pl-6">
         <!-- categories -->
-        <div v-for='category in ["Getting started", "Reusability", "Publishing & Citing", "Resources", "Examples", "Upcoming (under construction)"]' :key="category" class="flex flex-wrap gap-4 mb-8">
+        <div v-for='category in ["Getting started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
             <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
             {{ category }}
             </h2>
             <!-- modules -->
             <ContentList path="/modules" v-slot="{ list }">
                 <div v-for="thing in list" :key="thing.id">
-                    <h2>{{ thing.title }}</h2>
+                    <h4>{{ thing.title }}</h4>
                     <p>{{ thing.thumbnail }}</p>
                 </div>
 
-                <ModuleCard v-for="thing in list"
+                <!-- <ModuleCard v-for="thing in list"
                     :key="thing.id"
                     :title="thing.title"
                     :author="thing.author"
                     :thumbnail="`media/${thing.thumbnail}`"
                     :url="`/modules/${thing.slug}`"
-                />
+                /> -->
             </ContentList>
         </div>
         </div>
