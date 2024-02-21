@@ -12,7 +12,8 @@
             <ContentList path="/modules" v-slot="{ list }">
                 <div v-for="thing in list" :key="thing.id">
                     <h4>{{ thing.title }}</h4>
-                    <p>{{ thing.thumbnail }}</p>
+                    <p>{{ thing }}</p>
+                    <img :src="`/modules/${thing.slug}/media/${thing.thumbnail}`" alt="module icon" class="max-w-xs rounded-tr-3xl">
                 </div>
 
                 <!-- <ModuleCard v-for="thing in list"
