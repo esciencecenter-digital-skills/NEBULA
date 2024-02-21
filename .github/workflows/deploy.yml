@@ -48,6 +48,7 @@ jobs:
           pwd
           ls -la
           cd NEBULA
+          npm ls | grep @nuxt/core
           npm ci
           npm ls | grep @nuxt/core
 
