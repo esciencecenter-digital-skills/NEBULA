@@ -9,7 +9,7 @@
             {{ category }}
             </h2>
             <!-- modules -->
-            <ContentList path="/modules" v-slot="{ list }">
+            <ContentList path="/modules" :query="query" v-slot="{ list }">
                 <div v-for="thing in list" :key="thing.id">
                     <h4>{{ thing.title }}</h4>
                     <p>{{ thing }}</p>
