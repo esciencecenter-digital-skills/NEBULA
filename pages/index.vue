@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-screen bg-gentleBlue h-screen overflow-auto">
         <Banner />
-        <input v-model="query" type="search" class="w-2/3 mt-4 mr-4 p-2 self-end" placeholder="search">
+        <!-- <input v-model="query" type="search" class="w-2/3 mt-4 mr-4 p-2 self-end" placeholder="search"> -->
         <div class="flex flex-col pt-4 pb-6 pl-6">
         <!-- categories -->
         <div v-for='category in ["Getting started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
@@ -9,13 +9,7 @@
             {{ category }}
             </h2>
             <!-- modules -->
-            <ContentList path="/modules" :query="query" v-slot="{ list }">
-                <div v-for="thing in list" :key="thing.id">
-                    <h4>{{ thing.title }}</h4>
-                    <p>{{ thing }}</p>
-                    <img :src="`${thing._path}/media/${thing.thumbnail}`" alt="module icon" class="max-w-xs rounded-tr-3xl">
-                </div>
-
+            <ContentList path="/modules" :query="modQuery" v-slot="{ list }">
                 <ModuleCard v-for="thing in list"
                     :key="thing.id"
                     :title="thing.title"
@@ -33,23 +27,26 @@
 <script setup lang="ts">
 
     import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
-    const query: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
+    
+    const {
+        // Global references
+        globals,
+        navigation,
+        surround,
+        page,
+        // Computed properties from `page` key
+        excerpt,
+        toc,
+        type,
+        layout,
+        // Computed properties from `surround` key
+        next,
+        prev
+    } = useContent()
 
-    // const {
-    //     // Global references
-    //     globals,
-    //     navigation,
-    //     surround,
-    //     page,
-    //     // Computed properties from `page` key
-    //     excerpt,
-    //     toc,
-    //     type,
-    //     layout,
-    //     // Computed properties from `surround` key
-    //     next,
-    //     prev
-    // } = useContent()
+    console.log(globals)
+    
+    const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
 //   import '../layouts/style.scss'
 
     // export default {
