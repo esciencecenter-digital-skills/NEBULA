@@ -9,13 +9,12 @@
             {{ category }}
             </h2>
             <!-- modules -->
-            <ContentList path="/modules" v-slot="{ modules }">
-                <ModuleCard
-                    v-for="module in modules"
+            <ContentList path="/" v-slot="{ modules }">
+                <ModuleCard v-for="module in modules"
                     :key="module.id"
                     :title="module.title"
                     :author="module.author"
-                    :thumbnail="`modules/${module.slug}/media/${module.thumbnail}`"
+                    :thumbnail="`media/${module.thumbnail}`"
                     :url="`/modules/${module.slug}`"
                 />
             </ContentList>
