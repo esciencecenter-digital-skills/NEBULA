@@ -15,13 +15,13 @@
                     <p>{{ thing.thumbnail }}</p>
                 </div>
 
-                <!-- <ModuleCard v-for="module in list"
-                    :key="module.id"
-                    :title="module.title"
-                    :author="module.author"
-                    :thumbnail="`media/${module.thumbnail}`"
-                    :url="`/modules/${module.slug}`"
-                /> -->
+                <ModuleCard v-for="thing in list"
+                    :key="thing.id"
+                    :title="thing.title"
+                    :author="thing.author"
+                    :thumbnail="`media/${thing.thumbnail}`"
+                    :url="`/modules/${thing.slug}`"
+                />
             </ContentList>
         </div>
         </div>
