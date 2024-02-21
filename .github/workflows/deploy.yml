@@ -15,7 +15,7 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout
+      - name: Checkout NEBULA framework
         uses: actions/checkout@v3
         with:
           repository: esciencecenter-digital-skills/NEBULA
@@ -49,7 +49,7 @@ jobs:
           cd NEBULA
           npm ci
 
-      - name: Checkout
+      - name: Checkout content
         if: ${{ inputs.content_repo != '' }}
         uses: actions/checkout@v3
         with:

@@ -23,7 +23,22 @@
     </div>
   </template>
   
-  <script>
+  <script setup lang="ts">
+    const {
+        // Global references
+        globals,
+        navigation,
+        surround,
+        page,
+        // Computed properties from `page` key
+        excerpt,
+        toc,
+        type,
+        layout,
+        // Computed properties from `surround` key
+        next,
+        prev
+    } = useContent()
 //   import '../layouts/style.scss'
   
 //   export default {

@@ -12,7 +12,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true,
               pages: true },
   modules: [
-    '@nuxt/content'
+    'nuxt-content-assets', // should be loaded before the content module!
+    '@nuxt/content',
   ],
   content: {
     // https://content.nuxtjs.org/api/configuration
