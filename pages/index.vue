@@ -10,7 +10,9 @@
             </h2>
             <!-- modules -->
             <ContentList path="/modules" :query="modQuery" v-slot="{ list }">
-                <ModuleCard v-for="modObject in list"
+                <ModuleCard v-for="modObject in list
+                        .filter(modObject => (modObject.category === category && modObject.visibility === 'visible'))
+                        .sort((a, b) => a.id - b.id)"
                     :key="modObject.id"
                     :title="modObject.title"
                     :author="modObject.author"
