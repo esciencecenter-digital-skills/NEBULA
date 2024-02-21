@@ -1,13 +1,13 @@
 ---
 id: 0
 trl: medium
-category: Publishing & Citing
-title: Demo
+category: Getting Started
+title: Dummy
 author: eScience Center
 thumbnail: "nlesc-dummy.png"
 visibility: visible
 ---
 
-# Demo module
+# Dummy module
 
-This is a demo module.
+This is a dummy module.

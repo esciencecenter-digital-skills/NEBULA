@@ -11,12 +11,12 @@
             <!-- modules -->
             <ContentList path="/modules" v-slot="{ modules }">
                 <ModuleCard
-                v-for="module in modules"
-                :key="module.id"
-                :title="module.title"
-                :author="module.author"
-                :thumbnail="`modules/${module.slug}/media/${module.thumbnail}`"
-                :url="`/modules/${module.slug}`"
+                    v-for="module in modules"
+                    :key="module.id"
+                    :title="module.title"
+                    :author="module.author"
+                    :thumbnail="`modules/${module.slug}/media/${module.thumbnail}`"
+                    :url="`/modules/${module.slug}`"
                 />
             </ContentList>
         </div>
