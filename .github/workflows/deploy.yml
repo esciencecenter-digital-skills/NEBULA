@@ -48,9 +48,9 @@ jobs:
           pwd
           ls -la
           cd NEBULA
-          npm ls | grep @nuxt/core
+          npm ls | grep nuxt
           npm ci
-          npm ls | grep @nuxt/core
+          npm ls | grep nuxt
 
       - name: Checkout content
         if: ${{ inputs.content_repo != '' }}
