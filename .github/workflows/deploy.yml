@@ -24,7 +24,8 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '20.x'
+
 
       - name: Check contents
         run: |
@@ -48,6 +49,7 @@ jobs:
           ls -la
           cd NEBULA
           npm ci
+          npm ls | grep @nuxt/core
 
       - name: Checkout content
         if: ${{ inputs.content_repo != '' }}
