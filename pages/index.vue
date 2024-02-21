@@ -4,7 +4,7 @@
         <!-- <input v-model="query" type="search" class="w-2/3 mt-4 mr-4 p-2 self-end" placeholder="search"> -->
         <div class="flex flex-col pt-4 pb-6 pl-6">
         <!-- categories -->
-        <div v-for='category in ["Getting started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
+        <div v-for='category in ["Getting Started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
             <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
             {{ category }}
             </h2>
