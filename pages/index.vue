@@ -10,12 +10,12 @@
             </h2>
             <!-- modules -->
             <ContentList path="/modules" :query="modQuery" v-slot="{ list }">
-                <ModuleCard v-for="thing in list"
-                    :key="thing.id"
-                    :title="thing.title"
-                    :author="thing.author"
-                    :thumbnail="`/NEBULA/${thing._path}/media/${thing.thumbnail}`"
-                    :url="thing._path"
+                <ModuleCard v-for="modObject in list"
+                    :key="modObject.id"
+                    :title="modObject.title"
+                    :author="modObject.author"
+                    :thumbnail="`/NEBULA/${modObject._path}/media/${modObject.thumbnail}`"
+                    :url="modObject._path"
                 />
             </ContentList>
         </div>
