@@ -31,6 +31,10 @@
 </template>
   
 <script setup lang="ts">
+
+    import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
+    const query: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
+
     // const {
     //     // Global references
     //     globals,
