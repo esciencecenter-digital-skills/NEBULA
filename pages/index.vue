@@ -27,6 +27,7 @@
 </template>
   
 <script setup lang="ts">
+    import '../layouts/style.scss'
 
     import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
     
@@ -49,7 +50,8 @@
     console.log(globals)
     
     const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
-//   import '../layouts/style.scss'
+    
+    
 
     // export default {
     //     async asyncData (context) {

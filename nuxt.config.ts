@@ -14,7 +14,17 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-content-assets', // should be loaded before the content module!
     '@nuxt/content',
+    '@nuxtjs/tailwindcss',
   ],
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss'
+  ],
+
   content: {
     // https://content.nuxtjs.org/api/configuration
     documentDriven: true
@@ -28,6 +38,15 @@ export default defineNuxtConfig({
   },
   ssr: true,
   target: "static",
+
+  // https://nuxt.com/docs/api/configuration/nuxt-config
+  postcss: {
+    css: ['./layouts/'],
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 
   hooks: {
     close: () => {

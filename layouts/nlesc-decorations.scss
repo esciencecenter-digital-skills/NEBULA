@@ -1,0 +1,392 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "reveal.js/css/theme/template/mixins";
+@import "reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+
+// Override theme settings (see ../template/settings.scss)
+
+$eScienceBlue: #009DDD;
+$eSciencePurple: #380339;
+$eScienceYellow: #FFB213;
+
+$backgroundColor: white;
+
+$mainColor: black;
+$headingColor: black;
+
+$mainFont: 'Assistant', Helvetica, sans-serif;
+$mainFontSize: 28px;
+$headingFont: 'Nunito', Helvetica, sans-serif;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$linkColor: $eScienceYellow;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$heading1Size: 3.0em;
+$heading2Size: 2.5em;
+$heading3Size: 2.0em;
+$heading4Size: 1.5em;
+
+
+// Theme template ------------------------------
+@import "reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
+// Styling for decorations, see nlesc-decorations.js for corresponding elements.
+
+// By default, all decorations are out of view/hidden
+#overlay {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 1s;
+	z-index: 1;
+	.opacity-10 { opacity: .1; }
+	.opacity-20 { opacity: .2; }
+	.opacity-30 { opacity: .3; }
+	.opacity-40 { opacity: .4; }
+	.opacity-50 { opacity: .5; }
+	.opacity-60 { opacity: .6; }
+	.opacity-70 { opacity: .7; }
+	.opacity-80 { opacity: .8; }
+	.opacity-90 { opacity: .9; }
+	.opacity-100 { opacity: 1; }
+  }
+
+  #logo-color, #logo-part-white, #logo-white {
+	transition: opacity 1s, left 1s;
+	opacity: 0;
+	position: absolute;
+	left: -50%;
+	top: 1.5%;
+	z-index: 2;
+	img {
+	  width: 70%;
+	}
+  }
+
+  #right-e {
+	transition: opacity 1s;
+	opacity: 0;
+	position: absolute;
+	top: -100%;
+	width: 6%;
+	z-index: 3;
+  }
+
+  #left-e {
+	transition: left 1s, bottom 1s;
+	position: absolute;
+	width: 6%;
+	left: -100%;
+	z-index: 3;
+  }
+
+  #blue-pane {
+	transition: opacity 1s;
+	background-color: $eScienceBlue;
+	opacity: 0;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	z-index: 1;
+  }
+
+  #touch-pane {
+	background-color: white;
+	transition: opacity 1s;
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	right: 66.6%;
+	bottom: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	h3 {
+	  color: black;
+	  text-align: left;
+	}
+  }
+
+  #empowering {
+	transition: opacity 1s;
+	opacity: 0;
+	position: absolute;
+	left: 6%;
+	right: 52%;
+	bottom: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	h3 {
+	  color: white;
+	  text-align: left;
+	  font-size: 100%;
+	}
+  }
+
+  #yellow-strip {
+	background-color: $eScienceYellow;
+	width: 18%;
+	height: 85%;
+	border-radius: 10vw 10vw 0 0;
+	z-index: 2;
+	position: absolute;
+	left: -28%;
+	bottom: 0;
+	transition: left 1s;
+  }
+
+  #yellow-half-strip {
+	opacity: 0;
+	transition: opacity 1s;
+	position: absolute;
+	background-color: $eScienceYellow;
+	left: -100%;
+	bottom: 0%;
+	width: 17%;
+	height: 25%;
+	z-index: 2;
+  }
+
+  #yellow-flag {
+	background-color: $eScienceYellow;
+	transition: left 1s, bottom 1s;
+	width: 10%;
+	height: 12%;
+	border-radius: 0 7vh 7vh 0;
+	z-index: 1;
+	position: absolute;
+	left: -20%;
+	bottom: 5%;
+	margin: 0;
+	padding: 1% 0 0 0;
+	img {
+	  position: relative;
+	  height: 90%;
+	  margin: 0;
+	  padding: 0;
+	}
+  }
+
+  #purple-half-circle-bottom {
+	opacity: 0;
+	transition: opacity 1s;
+	position: absolute;
+	background-color: $eSciencePurple;
+	left: -50%;
+	bottom: 0%;
+	width: 15%;
+	height: 15%;
+	border-radius: 20vw 20vw 0 0;
+	z-index: 2;
+  }
+
+  #purple-half-circle-top {
+	transition: top 1s;
+	opacity: 1;
+	position: absolute;
+	background-color: $eSciencePurple;
+	left: 0;
+	top: -50%;
+	width: 30%;
+	height: 30%;
+	border-radius: 0 0 20vw 20vw;
+	z-index: 2;
+  }
+
+  #purple-half-circle-logo {
+	transition: opacity 1s;
+	background-color: $eSciencePurple;
+	width: 36%;
+	height: 30%;
+	border-radius: 28vw 28vw 0 0;
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	opacity: 0;
+	img {
+	  position: relative;
+	  bottom: -34%;
+	  left: 22%;
+	  width: 55%;
+	}
+  }
+
+  #purple-blob {
+	transition: top 1s;
+	position: absolute;
+	display: flex;
+	right: 0;
+	top: -100vh;
+	z-index: 2;
+	div {
+	  background-color: $eSciencePurple;
+	}
+	.blob1 {
+	  width: 10vw;
+	  height: 25vh;
+	  border-radius: 0 0 10vw 10vw;
+	}
+	.blob2 {
+	  width: 10vw;
+	  height: 50vh;
+	  border-radius: 0 0 10vw 10vw;
+	}
+	.box {
+	  position: absolute;
+	  right: 10vw;
+	  top: 0;
+	  width: 5vw;
+	  height: calc(25vh + 5vw);
+	  background: linear-gradient(45deg,  transparent 10vw, $eSciencePurple 0) bottom left;
+	  background-image: radial-gradient(circle at 0 100%, rgba(204,0,0,0) 5vw, $eSciencePurple 15px)
+	}
+  }
+
+  #globe, #phone, #mail {
+	transition: left 1s;
+	position: absolute;
+	width: 2.2%;
+	z-index: 3;
+	top: -20%;
+	left: -20%;
+  }
+
+  // Define how decorations look when 'activated', using mixins to avoid repetition
+  @mixin white-overlay { #overlay { background-color: white; opacity: .8; } }
+  @mixin black-overlay { #overlay { background-color: black; opacity: .8; } }
+  @mixin blue-overlay { #overlay { background-color: $eScienceBlue; opacity: .8; } }
+  @mixin purple-overlay { #overlay { background-color: $eSciencePurple; opacity: .8; } }
+
+  @mixin logo-color { #logo-color { left: 3%; opacity: 1; } }
+  @mixin logo-white { #logo-white { left: 3%; opacity: 1; } }
+  @mixin logo-part-white { #logo-part-white { left: 3%; opacity: 1; } }
+
+  @mixin yellow-flag { #yellow-flag { left: 0; } }
+  @mixin yellow-strip { #yellow-strip { left: 0; } }
+  @mixin yellow-half-strip-right { #yellow-half-strip { opacity: 1; border-radius: 0 20vw 0 0; left: 33%; } }
+  @mixin yellow-half-strip-left { #yellow-half-strip { opacity: 1; border-radius: 20vw 0 0 0; left: 33%; } }
+
+  @mixin purple-blob { #purple-blob { top: 0; }}
+  @mixin purple-half-circle-top { #purple-half-circle-top { top: 0; } }
+  @mixin purple-half-circle-bottommiddle { #purple-half-circle-bottom { bottom: 0; left: 50%; opacity: 1; } }
+  @mixin purple-half-circle-bottomleft { #purple-half-circle-bottom { bottom: 0; left: 18%; opacity: 1; } }
+  @mixin purple-half-circle-logo { #purple-half-circle-logo { opacity: 1; } }
+
+  @mixin touch-pane { #touch-pane { opacity: 1; } }
+  @mixin empowering { #empowering { opacity: 1} }
+
+  @mixin blue-pane-left { #blue-pane { opacity: 1; left: 0; right: 50%;} }
+  @mixin blue-pane-right { #blue-pane { opacity: 1; left: 50%; right: 0;} }
+
+  @mixin right-e-top { #right-e { top: 10%; right: 0; opacity: 1; }}
+  @mixin right-e-bottom { #right-e { top: 67%; right: 0; opacity: 1; }}
+
+  @mixin left-e { #left-e { bottom: 30%; left: 0} }
+
+  @mixin globe { #globe { top: 38.6%; left: 46%; } }
+  @mixin mail { #mail {	top: 46.6%; left: 46%; } }
+  @mixin phone { #phone { top: 53.5%; left: 46%; } }
+
+
+  // data-state changes set classes on the reveal-viewport element
+  // so this is where we can build up our custom classes
+  .reveal-viewport {
+
+	// Classes for toggling individual elements, using the mixins defined above
+	// These classes are applied to the reveal-viewport element itself
+	// so they can be used to style any element inside the viewport
+	// e.g:
+	// &.white-overlay { @include white-overlay; }
+	// &.black-overlay { @include black-overlay; }
+	// &.blue-pane-left { @include blue-pane-left; }
+	// &.blue-pane-right { @include blue-pane-right; }
+	// &.right-e-top { @include right-e-top; }
+	// &.right-e-bottom { @include right-e-bottom; }
+	// etc.
+
+	// Classes for toggling multiple elements at once; default styles
+	&.title {
+	  @include purple-half-circle-logo;
+	  @include purple-blob;
+	  @include right-e-top;
+	  @include yellow-strip;
+	  @include blue-overlay;
+	  @include left-e;
+	  h1, h2 {
+		color: white;
+		margin: 6% 6% 6% 15%;
+	  }
+	}
+	&.standard {
+	  @include logo-color;
+	  @include yellow-flag;
+	  h1, h2, h3, p, ul{
+		text-align: left;
+		padding-left: 10%;
+	  }
+	}
+	&.about {
+	  @include logo-part-white;
+	  @include blue-pane-left;
+	  @include purple-half-circle-top;
+	  @include purple-half-circle-bottomleft;
+	  @include yellow-half-strip-left;
+	  @include empowering;
+	  h1, h2, p, ul {
+		text-align: left;
+		padding-left: 55%;
+	  };
+	}
+	&.keepintouch {
+	  @include logo-color;
+	  @include blue-overlay;
+	  @include touch-pane;
+	  @include purple-blob;
+	  @include right-e-bottom;
+	  @include yellow-half-strip-right;
+	  @include purple-half-circle-bottommiddle;
+	  @include globe;
+	  @include mail;
+	  @include phone;
+	  h1, h2, p, ul {
+		text-align: left;
+		padding-left: 50%;
+	  };
+	  a, p {
+		color: white;
+	  }
+	}
+
+	section.has-dark-background { h1, h2, h3 {
+	  color: white;
+	}
+  }
+  .slides {
+	/* puts the slide content above overlays and decorations*/
+	//position: relative;
+	z-index: 10;
+	}
+  }
+
