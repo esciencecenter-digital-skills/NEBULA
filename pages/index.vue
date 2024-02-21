@@ -21,27 +21,12 @@
       </div>
       <Footer />
     </div>
-  </template>
+</template>
   
   <script setup lang="ts">
-    const {
-        // Global references
-        globals,
-        navigation,
-        surround,
-        page,
-        // Computed properties from `page` key
-        excerpt,
-        toc,
-        type,
-        layout,
-        // Computed properties from `surround` key
-        next,
-        prev
-    } = useContent()
-//   import '../layouts/style.scss'
+    import '../layouts/style.scss'
   
-//   export default {
+//    export default {
 //     async asyncData (context) {
 //       const stories = await context.$content()
 //         .only(['id', 'slug', 'title', 'author', 'thumbnail', 'category', 'visibility'])
