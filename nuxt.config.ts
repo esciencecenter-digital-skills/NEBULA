@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   ],
   content: {
     // https://content.nuxtjs.org/api/configuration
+    documentDriven: true
   },
   app: {
     baseURL: '/NEBULA/'
