@@ -51,40 +51,9 @@
     
     const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
     
-    
-
-    // export default {
-    //     async asyncData (context) {
-    //         const stories = await context.$content()
-    //             .only(['id', 'slug', 'title', 'author', 'thumbnail', 'category', 'visibility'])
-    //             .fetch()
-    //             .catch(e => console.log(e))
-
-    //         const categories = stories
-    //             .filter(module => module.visibility === 'visible')
-    //             .map(module => module.category)
-    //             .filter((v, i, a) => a.indexOf(v) === i)
-    //             .sort((a, b) => {
-    //             return context.$config.categoryOrder.indexOf(a) - context.$config.categoryOrder.indexOf(b)
-    //             })
-
-    //         return { stories, categories }
-    //     },
-    //     data () {
-    //         return {
-    //             query: ''
-    //         }
-    //     },
-    //     watch: {
-    //         async query (query) {
-    //             this.stories = await this.$content()
-    //             .only(['id', 'slug', 'title', 'author', 'thumbnail', 'category'])
-    //             .search(query)
-    //             .fetch()
-    //             .catch(e => console.log(e))
-    //         }
-    //     }
-    // }
+    definePageMeta({
+    layout: 'moduleLayout'
+    })
 
 
 </script>

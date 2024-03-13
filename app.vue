@@ -1,6 +1,14 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: 'moduleLayout'
+})
+</script>
+
 <template>
   <div>
-    <NuxtPage />
+    <NuxtLayout :name="moduleLayout">
+      <NuxtPage />
+    </NuxtLayout>
     <!-- This is the app.vue.
     <ContentDoc /> -->
   </div>

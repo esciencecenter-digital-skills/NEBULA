@@ -10,6 +10,7 @@
             <li><nuxt-link :to="`/modules/${$route.params.name}/reading`">Reading</nuxt-link></li>
         </ul>
 
+        <slot />
 
         <!-- <ul>
             <li v-for="file in files" :key="file">
@@ -18,4 +19,3 @@
         </ul> -->
     </main>
 </template>
-
