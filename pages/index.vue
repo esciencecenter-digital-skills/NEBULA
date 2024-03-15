@@ -1,29 +1,24 @@
 <template>
-    <div class="flex flex-col w-screen bg-gentleBlue h-screen overflow-auto">
-        <Banner />
-        <!-- <input v-model="query" type="search" class="w-2/3 mt-4 mr-4 p-2 self-end" placeholder="search"> -->
         <div class="flex flex-col pt-4 pb-6 pl-6">
-        <!-- categories -->
-        <div v-for='category in ["Getting Started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
-            <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
-            {{ category }}
-            </h2>
-            <!-- modules -->
-            <ContentList path="/modules" :query="modQuery" v-slot="{ list }">
-                <ModuleCard v-for="modObject in list
-                        .filter(modObject => (modObject.category === category && modObject.visibility === 'visible'))
-                        .sort((a, b) => a.id - b.id)"
-                    :key="modObject.id"
-                    :title="modObject.title"
-                    :author="modObject.author"
-                    :thumbnail="`/NEBULA/${modObject._path}/media/${modObject.thumbnail}`"
-                    :url="modObject._path"
-                />
-            </ContentList>
+            <!-- categories -->
+            <div v-for='category in ["Getting Started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
+                <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
+                {{ category }}
+                </h2>
+                <!-- modules -->
+                <ContentList path="/modules" :query="modQuery" v-slot="{ list }">
+                    <ModuleCard v-for="modObject in list
+                            .filter(modObject => (modObject.category === category && modObject.visibility === 'visible'))
+                            .sort((a, b) => a.id - b.id)"
+                        :key="modObject.id"
+                        :title="modObject.title"
+                        :author="modObject.author"
+                        :thumbnail="`/NEBULA/${modObject._path}/media/${modObject.thumbnail}`"
+                        :url="modObject._path"
+                    />
+                </ContentList>
+            </div>
         </div>
-        </div>
-        <Footer />
-    </div>
 </template>
   
 <script setup lang="ts">
@@ -51,9 +46,4 @@
     
     const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
     
-    definePageMeta({
-    layout: 'moduleLayout'
-    })
-
-
 </script>
