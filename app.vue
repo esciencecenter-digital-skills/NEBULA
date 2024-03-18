@@ -1,7 +1,7 @@
 <template>
   <div>
-    <NuxtPage />
-    <!-- This is the app.vue.
-    <ContentDoc /> -->
+    <NuxtLayout name="default">
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
