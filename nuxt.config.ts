@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 
   // https://nuxt.com/docs/api/configuration/nuxt-config
   postcss: {
-    css: ['./layouts/'],
+    css: ['./layouts/style.scss'],
     plugins: {
       tailwindcss: {},
       autoprefixer: {},

@@ -22,8 +22,6 @@
 </template>
   
 <script setup lang="ts">
-    import '../layouts/style.scss'
-
     import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
     
     const {
