@@ -2,7 +2,6 @@
 import { publicProps } from './config.json'
 import tailwindTypography from '@tailwindcss/typography'
 
-
 export default defineNuxtConfig({
   runtimeConfig: { 
     public: publicProps, 
@@ -30,7 +29,7 @@ export default defineNuxtConfig({
     documentDriven: true
   },
   app: {
-    baseURL: '/NEBULA/'
+    baseURL: `/${publicProps.repoName}/`
   },
   generate: {
       nojekyll: true,
