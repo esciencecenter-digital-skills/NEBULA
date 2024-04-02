@@ -13,7 +13,7 @@
                         :key="modObject.id"
                         :title="modObject.title"
                         :author="modObject.author"
-                        :thumbnail="`/NEBULA/${modObject._path}/media/${modObject.thumbnail}`"
+                        :thumbnail="`/${runtimeConfig.public.repoName}/${modObject._path}/media/${modObject.thumbnail}`"
                         :url="modObject._path"
                     />
                 </ContentList>
