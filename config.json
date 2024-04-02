@@ -2,7 +2,7 @@
     "publicProps":
     {
     "title": "NEBULA platform",
-    "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Resources", "Examples"],
-    "another": "this test worked"
+    "repoName":"NEBULA",
+    "categoryOrder": ["Getting Started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"]
     }
 }
