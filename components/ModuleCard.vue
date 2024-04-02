@@ -29,7 +29,7 @@ export default {
     },
     thumbnail: {
       type: String,
-      default: './public/nlesc-logo.svg'
+      default: './nlesc-logo.svg'
     },
     url: {
       type: String,
