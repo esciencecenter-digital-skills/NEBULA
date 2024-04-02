@@ -3,7 +3,6 @@
     {
     "title": "NEBULA platform",
     "repoName":"NEBULA",
-    "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"],
-    "another": "this test worked"
+    "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"]
     }
 }
