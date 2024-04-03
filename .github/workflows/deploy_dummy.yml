@@ -3,14 +3,15 @@ name: Deploy to gh-pages
 on: 
   push:
     branches:
-      main
     workflow_dispatch:
 
 jobs:
   deploy_with_NEBULA:
     permissions: 
       contents: write
-    uses: ./.github/workflows/deploy.yml
 
+    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@v0.1.0
+    with:
+      content_repo: esciencecenter-digital-skills/research-software-support
 
 
