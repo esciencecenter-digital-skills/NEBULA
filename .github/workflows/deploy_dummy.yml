@@ -10,7 +10,7 @@ jobs:
     permissions: 
       contents: write
 
-    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml
+    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@configuration
     with:
       content_repo: esciencecenter-digital-skills/research-software-support
 
