@@ -18,7 +18,7 @@
                     />
                 </ContentList>
             </div>
-        <!--<Slides /> -->
+        <Slides />
     </div>
 </template>
   

@@ -45,9 +45,10 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
+  css: ['~/layouts/style.scss'],
+
   // https://nuxt.com/docs/api/configuration/nuxt-config
   postcss: {
-    css: ['./layouts/style.scss'],
     plugins: {
       tailwindcss: {},
       autoprefixer: {},

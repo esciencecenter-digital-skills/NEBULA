@@ -1,11 +1,17 @@
 <template>
-    <div class="flex-auto w-full overflow-auto">
+    <div class="w-full box-border h-screen">
         <h1>SLIDES?</h1>
         <div class="reveal">
             <div class="slides">
                 <!--<section :data-markdown="presentation.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:" /> -->
-                <section>Slide 1</section>
-                <section>Slide 2</section>
+                <section>Slide 1
+                * 1
+                * 2
+                * 3
+                </section>
+                <section>Slide 2
+                Ciao
+                </section>
           </div>
         </div>
     </div>
@@ -13,9 +19,13 @@
 
 <script setup lang="ts">
     
+    import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 
-//    import 'reveal.js/dist/reveal.css';
-//    import '/layouts/nlesc-decorations.scss';
+    import RevealNotes from 'reveal.js/plugin/notes/notes.js'
+//    import RevealMath from 'reveal.js/plugin/math/math.js'
+    import Search from 'reveal.js/plugin/search/search.esm.js'
+    import Decorations from '~/layouts/nlesc-decorations.js'
+
   
     onMounted(() => {
         console.log('Slides Mounted');
@@ -28,8 +38,17 @@
                         console.log('Check', revealModule);
 
                         const deck = new revealModule.default();
-                        deck.initialize();
-
+                        deck.initialize({
+                            controls: true,
+                            progress: true,
+                            center: true,
+                            hash: true,
+                            transition: 'none',
+                            embedded: true,
+                            showNotes: true,
+                            plugins: [RevealMarkdown, RevealNotes, Decorations, Search]
+                      });
+ 
                         console.log('Check', deck);
 
                         
