@@ -28,7 +28,9 @@ jobs:
           ls -la
           cd content_config
           ls -la
+          cat config.json
           cd -
+          
 
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
