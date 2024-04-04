@@ -19,7 +19,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.config_artifact_name }}
-          path: ./content_config/config.json
+          path: ./content_config
 
       
       - name: Show content_config
