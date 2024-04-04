@@ -3,15 +3,7 @@
         <h1>SLIDES?</h1>
         <div class="reveal">
             <div class="slides">
-                <!--<section :data-markdown="presentation.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:" /> -->
-                <section>Slide 1
-                * 1
-                * 2
-                * 3
-                </section>
-                <section>Slide 2
-                Ciao
-                </section>
+                <section :data-markdown="presentation.md" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:" />
           </div>
         </div>
     </div>
