@@ -18,12 +18,15 @@
                     />
                 </ContentList>
             </div>
-        </div>
+        <!--<Slides /> -->
+    </div>
 </template>
   
 <script setup lang="ts">
-    import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
-    
+
+
+    import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+
     const {
         // Global references
         globals,
@@ -40,8 +43,9 @@
         prev
     } = useContent()
 
-    console.log(globals)
+    console.log(globals);
     
     const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
-    
+
+           
 </script>

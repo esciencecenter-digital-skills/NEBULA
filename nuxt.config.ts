@@ -27,7 +27,13 @@ export default defineNuxtConfig({
 
   content: {
     // https://content.nuxtjs.org/api/configuration
-    documentDriven: true
+    documentDriven: true,
+
+    markdown: {
+      remarkPlugins: [
+        'remark-directive'
+      ]
+    }
   },
   app: {
     baseURL: '/NEBULA/'
