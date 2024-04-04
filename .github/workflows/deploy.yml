@@ -19,7 +19,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.config_artifact_name }}
+          path: ./content_config/config.json
 
+      
+      - name: Show content_config
+        run: |
+          pwd
+          ls -la
+          cd content_config
+          ls -la
+          cd -
 
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
