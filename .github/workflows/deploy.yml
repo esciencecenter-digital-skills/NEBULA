@@ -3,7 +3,7 @@ name: Deploy to gh-pages
 on:
   workflow_call:
     inputs:
-      content_repo: 
+      config_artifact_name: 
         required: true
         type: string
 
@@ -15,6 +15,12 @@ jobs:
       contents: write
 
     steps:
+      - name: Download content_config
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.config_artifact_name}
+
+
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
         with:
@@ -23,15 +29,6 @@ jobs:
 
       - name: Check current NEBULA reference
         run: echo "branch=$GITHUB_REF"
-
-      - name: Checkout content
-        if: ${{ inputs.content_repo != '' }}
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ inputs.content_repo }}
-          sparse-checkout: config.json
-          sparse-checkout-cone-mode: false
-          path: ./content_config
 
       - name: Check contents
         run: pwd
