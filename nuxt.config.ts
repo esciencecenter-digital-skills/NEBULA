@@ -1,8 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { publicProps } from './config.json'
 import tailwindTypography from '@tailwindcss/typography'
 
+const config_path = process.env.CONFIG_PATH;
 console.log(process.env.CONFIG_PATH);
+
+import(config_path)
+  .then((config) => {
+    // Module is imported successfully
+    console.log(config);
+    publicProps = config.publicProps
+  })
+  .catch((error) => {
+    // Handle any errors that occurred during import
+    console.error('Error importing module:', error);
+  });
+
+console.log(publicProps)
 
 export default defineNuxtConfig({
   runtimeConfig: { 
