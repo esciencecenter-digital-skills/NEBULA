@@ -3,12 +3,12 @@ import tailwindTypography from '@tailwindcss/typography'
 
 const config_path = process.env.CONFIG_PATH;
 console.log(process.env.CONFIG_PATH);
-
+let publicProps;
 import(config_path)
   .then((config) => {
     // Module is imported successfully
     console.log(config);
-    publicProps = config.publicProps
+    publicProps = config.publicProps;
   })
   .catch((error) => {
     // Handle any errors that occurred during import
