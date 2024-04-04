@@ -7,11 +7,15 @@ on:
 
 jobs:
   get_content_config:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout content
         uses: actions/checkout@v4
         with:
-          # the line below should be removed to specify the calling repo
           repository: esciencecenter-digital-skills/research-software-support 
           sparse-checkout: config.json
           sparse-checkout-cone-mode: false
