@@ -9,7 +9,7 @@ import(config_path)
   .then((config) => {
     // Module is imported successfully
     console.log("print config", config);
-    publicProps = config.publicProps;
+    publicProps = config["publicProps"];
   })
   .catch((error) => {
     // Handle any errors that occurred during import
