@@ -22,15 +22,18 @@ jobs:
           path: ./content_config
 
       
-      - name: Show content_config
+      - name: Set environment variable
         run: |
           pwd
           ls -la
           cd content_config
           ls -la
+          echo "CONFIG_PATH=${PWD}/config.json" >> $GITHUB_ENV
           cat config.json
           cd -
-          
+      
+      - name: test environment variable
+        run: echo $CONFIG_PATH 
 
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
