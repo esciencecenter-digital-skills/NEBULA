@@ -2,6 +2,8 @@
 import { publicProps } from './config.json'
 import tailwindTypography from '@tailwindcss/typography'
 
+console.log(process.env.CONFIG_PATH);
+
 export default defineNuxtConfig({
   runtimeConfig: { 
     public: publicProps, 
