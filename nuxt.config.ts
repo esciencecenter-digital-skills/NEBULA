@@ -4,10 +4,11 @@ import tailwindTypography from '@tailwindcss/typography'
 const config_path = process.env.CONFIG_PATH;
 console.log(process.env.CONFIG_PATH);
 let publicProps;
+
 import(config_path)
   .then((config) => {
     // Module is imported successfully
-    console.log(config);
+    console.log("print config", config);
     publicProps = config.publicProps;
   })
   .catch((error) => {
@@ -15,7 +16,7 @@ import(config_path)
     console.error('Error importing module:', error);
   });
 
-console.log(publicProps)
+console.log("print publicprops", publicProps)
 
 export default defineNuxtConfig({
   runtimeConfig: { 
