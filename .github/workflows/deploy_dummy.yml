@@ -2,15 +2,11 @@ name: Deploy to gh-pages
 
 on: 
   push:
-    branches:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   get_content_config:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout content
