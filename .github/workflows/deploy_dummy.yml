@@ -15,7 +15,7 @@ jobs:
           repository: esciencecenter-digital-skills/research-software-support 
           sparse-checkout: config.json
           sparse-checkout-cone-mode: false
-          path: ./content_config
+          path: ./content_config/
     
       - name: Show config path
         run: |
