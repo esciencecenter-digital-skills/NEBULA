@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '/home/runner/work/NEBULA/NEBULA/content_config/config.json'
+import { publicProps } from '../content_config/config.json'
 
 console.log("print publicprops", publicProps)
 
