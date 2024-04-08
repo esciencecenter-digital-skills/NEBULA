@@ -12,44 +12,21 @@ on:
       - main
 
 jobs:
-  get_content_config:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout content
-        uses: actions/checkout@v4
-        with:
-          repository: esciencecenter-digital-skills/NEBULA
-          ref: main
-          sparse-checkout: config.json
-          sparse-checkout-cone-mode: false
-          path: ./content_config/
-    
-      - name: Show config path
-        run: |
-          pwd
-          ls -la
-          cd content_config
-          ls -la
-          cd -
-
-      - name: Upload content config file
-        uses: actions/upload-artifact@v4
-        with:
-          name: content_config
-          path: /home/runner/work/NEBULA/content_config/config.json
-
   build:
     runs-on: ubuntu-latest
-    needs: get_content_config
     steps:
     - uses: actions/checkout@v3
 
     - name: Download content_config
-      uses: actions/download-artifact@v4
-      with:
-        name: content_config
-        path: ./content_config
+      run: |
+        mkdir ../content_config
+        echo '{ "publicprops":{
+          "title": "NEBULA test platform",
+          "repoName":"research-software-support",
+          "repoOwner": "esciencecenter-digital-skills",
+          "repoTag": "main",
+          "categoryOrder": ["empty"]
+        }}' > ../content_config/config.json
     
     - name: Run CI on Node.js 18.x
       uses: actions/setup-node@v3
