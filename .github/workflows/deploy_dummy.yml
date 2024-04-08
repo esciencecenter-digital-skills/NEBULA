@@ -39,3 +39,4 @@ jobs:
     uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@configuration
     with:
       config_artifact_name: content_config
+      nebula_ref: main
