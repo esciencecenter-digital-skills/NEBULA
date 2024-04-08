@@ -4,8 +4,9 @@
     "repoName": "research-software-support",
     "repoOwner": "esciencecenter-digital-skills",
     "repoTag": "main",
+    "organization": "Netherlands eScience Center",
     "categoryOrder": [
-      "Getting Started",
+      "Getting started",
       "Reusability",
       "Publishing & Citing",
       "Upcoming (under construction)"
