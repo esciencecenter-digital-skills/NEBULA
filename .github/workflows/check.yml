@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: content_config
-          path: ./content_config/config.json
+          path: /home/runner/work/NEBULA/content_config/config.json
 
   build:
     runs-on: ubuntu-latest
