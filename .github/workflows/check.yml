@@ -37,13 +37,20 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: content_config
-          path: /home/runner/work/content_config/config.json
+          path: ./content_config/config.json
 
   build:
     runs-on: ubuntu-latest
     needs: get_content_config
     steps:
     - uses: actions/checkout@v3
+
+    - name: Download content_config
+      uses: actions/download-artifact@v4
+      with:
+        name: content_config
+        path: ./content_config
+    
     - name: Run CI on Node.js 18.x
       uses: actions/setup-node@v3
       with:
