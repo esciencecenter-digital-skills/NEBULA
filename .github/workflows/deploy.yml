@@ -39,7 +39,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: esciencecenter-digital-skills/NEBULA
-          ref: configuration
           path: ./NEBULA
 
       - name: Check current NEBULA reference

@@ -12,6 +12,33 @@ on:
       - main
 
 jobs:
+  get_content_config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout content
+        uses: actions/checkout@v4
+        with:
+          repository: esciencecenter-digital-skills/NEBULA
+          ref: main
+          sparse-checkout: config.json
+          sparse-checkout-cone-mode: false
+          path: ./content_config/
+    
+      - name: Show config path
+        run: |
+          pwd
+          ls -la
+          cd content_config
+          ls -la
+          cd -
+
+      - name: Upload content config file
+        uses: actions/upload-artifact@v4
+        with:
+          name: content_config
+          path: ./content_config/config.json
+
   build:
     runs-on: ubuntu-latest
 
