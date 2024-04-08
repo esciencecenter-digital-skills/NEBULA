@@ -3,8 +3,8 @@ name: Deploy to gh-pages
 on:
   workflow_call:
     inputs:
-      content_repo: 
-        required: false
+      config_artifact_name: 
+        required: true
         type: string
 
 jobs:
@@ -15,25 +15,42 @@ jobs:
       contents: write
 
     steps:
+      - name: Download content_config
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.config_artifact_name }}
+          path: ./content_config
+
+      
+      - name: Set environment variable
+        run: |
+          pwd
+          ls -la
+          cd content_config
+          ls -la
+          echo "CONFIG_PATH=${PWD}/config.json" >> $GITHUB_ENV
+          cat config.json
+          cd -
+      
+      - name: test environment variable
+        run: echo $CONFIG_PATH 
+
       - name: Checkout NEBULA framework
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: esciencecenter-digital-skills/NEBULA
           path: ./NEBULA
+
+      - name: Check current NEBULA reference
+        run: echo "branch=$GITHUB_REF"
+
+      - name: Check contents
+        run: pwd
 
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-
-
-      - name: Check contents
-        run: |
-          pwd
-          ls -la
-          cd ./NEBULA
-          ls -la
-          cd -
 
       - name: Cache NPM dependencies
         uses: actions/cache@v4
@@ -52,39 +69,10 @@ jobs:
           npm ci
           npm ls | grep nuxt
 
-      - name: Checkout content
-        if: ${{ inputs.content_repo != '' }}
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ inputs.content_repo }}
-          path: ./NEBULA/content
-
-      - name: Check contents of Nebula/content
-        run: |
-          pwd
-          ls -la
-          cd ./NEBULA
-          ls -la
-          cd content
-          ls -la
-
-
       - name: Generate
         run: |
           cd NEBULA
           npx nuxi generate
-
-      - name: Check generated contents
-        run: |
-          pwd
-          ls -la
-          cd NEBULA
-          pwd
-          cd .output/public
-          pwd
-          ls -la
-          cd modules
-          ls -la
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
