@@ -26,7 +26,12 @@ jobs:
           "repoOwner": "esciencecenter-digital-skills",
           "repoTag": "main",
           "categoryOrder": ["empty"]
-        }}' > ../content_config/config.json
+          }}' > ../content_config/config.json
+        cd ../content_config
+        pwd
+        ls -la
+        cat config.json
+
     
     - name: Run CI on Node.js 18.x
       uses: actions/setup-node@v3
