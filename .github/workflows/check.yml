@@ -41,7 +41,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
+    needs: get_content_config
     steps:
     - uses: actions/checkout@v3
     - name: Run CI on Node.js 18.x
