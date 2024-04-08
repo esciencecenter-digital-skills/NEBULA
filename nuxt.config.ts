@@ -2,21 +2,6 @@
 import tailwindTypography from '@tailwindcss/typography'
 import { publicProps } from '/home/runner/work/NEBULA/NEBULA/content_config/config.json'
 
-const config_path = process.env.CONFIG_PATH;
-console.log("This path is not being used, but should be used to import dynamically:", config_path);
-// let publicProps = null;
-
-// import(config_path)
-//   .then((config) => {
-//     // Module is imported successfully
-//     console.log("print config", config);
-//     publicProps = config["publicProps"];
-//   })
-//   .catch((error) => {
-//     // Handle any errors that occurred during import
-//     console.error('Error importing module:', error);
-//   });
-
 console.log("print publicprops", publicProps)
 
 export default defineNuxtConfig({
