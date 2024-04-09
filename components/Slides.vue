@@ -2,7 +2,7 @@
     <div class="w-full box-border h-screen">
         <div class="reveal">
             <div class="slides">
-                <section :data-markdown="'/NEBULA/' + slidescontent" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:" />
+                <section :data-markdown="slidescontent" data-separator="^\r?\n---\r?\n$" data-separator-notes="^Note:" />
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
     import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 
     import RevealNotes from 'reveal.js/plugin/notes/notes.js'
-    import RevealMath from 'reveal.js/plugin/math/math.js'
+//    import RevealMath from 'reveal.js/plugin/math/math.js'
     import Search from 'reveal.js/plugin/search/search.esm.js'
     import Decorations from '~/layouts/nlesc-decorations.js'
 
@@ -47,7 +47,7 @@
                             transition: 'none',
                             embedded: true,
                             showNotes: true,
-                            plugins: [RevealMarkdown, RevealMath, RevealNotes, Decorations, Search]
+                            plugins: [RevealMarkdown, RevealNotes, Decorations, Search]
                       });
  
                         console.log('Check', deck);
