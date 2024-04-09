@@ -34,6 +34,7 @@ export default defineNuxtConfig({
       remarkPlugins: [
         'remark-directive'
       ]
+    },
 
     sources: {
       github: {
