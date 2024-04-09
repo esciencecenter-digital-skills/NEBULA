@@ -1,7 +1,7 @@
 <template>
     <main>
-      <div class="flex flex-auto overflow-auto p-4 bg-gentleBlue font-body h-full w-full">
-        <div class="flex-initial bg-white p-4 w-1/3 rounded overflow-auto">
+      <div class="flex flex-auto justify-end overflow-auto p-4 bg-gentleBlue font-body h-full w-full">
+        <div class="flex-auto w-full overflow-auto">
             <ContentDoc v-slot="{ doc }">
                 <div v-if="doc._extension==='pmd'">
                     <Slides :slidescontent="baseUrl + doc._file"/>
