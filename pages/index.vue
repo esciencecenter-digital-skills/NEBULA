@@ -1,5 +1,5 @@
 <template>
-        <div class="flex flex-col pt-4 pb-6 pl-6">
+    <div class="flex flex-col pt-4 pb-6 pl-6">
             <!-- categories -->
             <div v-for='category in ["Getting Started", "Reusability", "Resources"]' :key="category" class="flex flex-wrap gap-4 mb-8">
                 <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
@@ -18,7 +18,6 @@
                     />
                 </ContentList>
             </div>
-        <Slides />
     </div>
 </template>
   
