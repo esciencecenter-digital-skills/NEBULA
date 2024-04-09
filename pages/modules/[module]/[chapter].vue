@@ -16,7 +16,3 @@
 
 
 </template>
-
-<script>
-
-</script>
