@@ -4,7 +4,7 @@
         <div class="flex-initial bg-white p-4 w-1/3 rounded overflow-auto">
             <ContentDoc v-slot="{ doc }">
                 <div v-if="doc._extension==='pmd'">
-                    <Slides :slidescontent="doc._file"/>
+                    <Slides :slidescontent="baseUrl + doc._file"/>
                 </div>
                 <div v-else>
                     <ContentRenderer :value="doc" class="prose mb-6" />
@@ -16,3 +16,11 @@
 
 
 </template>
+
+<script setup lang="ts">
+    const runtimeConfig = useRuntimeConfig()
+
+    console.log(runtimeConfig.public.repoName);
+    const baseUrl = "/" + runtimeConfig.public.repoName + "/"
+
+</script>
