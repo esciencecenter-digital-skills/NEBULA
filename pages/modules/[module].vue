@@ -5,7 +5,6 @@
       </h2>
 
       <div class="flex flex-auto no-wrap text-left">
-
         <ContentList :path="'/modules/' + $route.params.module + '/'" v-slot="{ list }">
           <div v-for="chapter in list" :key="chapter._path">
             <nuxt-link :to="chapter._path">
@@ -22,8 +21,3 @@
       <NuxtPage />
     </div>
 </template>
-
-
-<script setup lang="ts">
-    import '../layouts/style.scss'
-</script>

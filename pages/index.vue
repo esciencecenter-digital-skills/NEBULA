@@ -1,5 +1,5 @@
 <template>
-        <div class="flex flex-col pt-4 pb-6 pl-6">
+    <div class="flex flex-col pt-4 pb-6 pl-6">
             <!-- categories -->
             <div v-for='category in runtimeConfig.public.categoryOrder' :key="category" class="flex flex-wrap gap-4 mb-8">
                 <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
@@ -18,11 +18,10 @@
                     />
                 </ContentList>
             </div>
-        </div>
+    </div>
 </template>
   
 <script setup lang="ts">
-    import '../layouts/style.scss'
 
     import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
     
@@ -44,8 +43,9 @@
         prev
     } = useContent()
 
-    console.log(globals)
+    console.log(globals);
     
     const modQuery: QueryBuilderParams = { path: '/modules', where: [{ visibility: 'visible' }] }
-    
+
+           
 </script>

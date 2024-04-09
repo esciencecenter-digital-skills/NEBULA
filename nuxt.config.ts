@@ -29,6 +29,13 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
     documentDriven: true,
+
+    markdown: {
+      remarkPlugins: [
+        'remark-directive'
+      ]
+    },
+
     sources: {
       github: {
         prefix: '/', // Prefix for routes used to query contents
@@ -38,7 +45,6 @@ export default defineNuxtConfig({
         dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
     // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
       }
-
     }
   },
   app: {
@@ -51,9 +57,10 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
+  css: ['~/layouts/style.scss'],
+
   // https://nuxt.com/docs/api/configuration/nuxt-config
   postcss: {
-    css: ['./layouts/'],
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
