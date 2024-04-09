@@ -24,7 +24,7 @@
     import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 
     import RevealNotes from 'reveal.js/plugin/notes/notes.js'
-//    import RevealMath from 'reveal.js/plugin/math/math.js'
+    import RevealMath from 'reveal.js/plugin/math/math.js'
     import Search from 'reveal.js/plugin/search/search.esm.js'
     import Decorations from '~/layouts/nlesc-decorations.js'
 
@@ -47,7 +47,7 @@
                             transition: 'none',
                             embedded: true,
                             showNotes: true,
-                            plugins: [RevealMarkdown, RevealNotes, Decorations, Search]
+                            plugins: [RevealMarkdown, RevealMath, RevealNotes, Decorations, Search]
                       });
  
                         console.log('Check', deck);
