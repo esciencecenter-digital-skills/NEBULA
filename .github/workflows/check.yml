@@ -14,9 +14,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
+
+    - name: Download content_config
+      run: |
+        mkdir ../content_config
+        echo '{ "publicprops":{
+          "title": "NEBULA test platform",
+          "repoName":"research-software-support",
+          "repoOwner": "esciencecenter-digital-skills",
+          "repoTag": "main",
+          "categoryOrder": ["empty"]
+          }}' > ../content_config/config.json
+        cd ../content_config
+        pwd
+        ls -la
+        cat config.json
+
+    
     - name: Run CI on Node.js 18.x
       uses: actions/setup-node@v3
       with:

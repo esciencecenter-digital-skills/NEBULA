@@ -1,8 +1,9 @@
 {
-    "publicProps":
-    {
-    "title": "NEBULA platform",
-    "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Resources", "Examples"],
-    "another": "this test worked"
+    "publicProps": {
+        "title": "NEBULA test platform",
+        "repoName":"research-software-support",
+        "repoOwner": "esciencecenter-digital-skills",
+        "repoTag": "main",
+        "categoryOrder": ["Getting Started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"]
     }
 }
