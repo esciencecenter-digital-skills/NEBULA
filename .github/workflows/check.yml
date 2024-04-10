@@ -49,5 +49,5 @@ jobs:
         cd content_config
         cat config.json
         cd ../../NEBULA
-        npm ci
+        npm install
     - run: npm run build
