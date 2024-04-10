@@ -1,10 +1,10 @@
 <template>
   <ContentDoc v-slot="{ doc }">
     <div
-      class="flex font-body h-full m-4 overflow-auto"
+      class="flex font-body m-4 bg-eScienceWhite"
       :class="{
-        'overflow-hidden': doc._extension === 'pmd',
-        'justify-center': doc._extension === 'md',
+        'overflow-hidden h-full': doc._extension === 'pmd',
+        'justify-center py-8': doc._extension === 'md',
       }"
     >
       <Slides
