@@ -15,7 +15,7 @@ jobs:
       - name: Checkout content
         uses: actions/checkout@v4
         with:
-          repository: esciencecenter-digital-skills/NEBULA
+          repository: esciencecenter-digital-skills/NEBULA-content-template
           sparse-checkout: config.json
           sparse-checkout-cone-mode: false
           path: ./content_config/
