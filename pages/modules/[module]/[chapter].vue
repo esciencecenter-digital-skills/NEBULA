@@ -1,8 +1,11 @@
 <template>
   <ContentDoc v-slot="{ doc }">
     <div
-      class="flex font-body h-full m-4 overflow-hidden"
-      :class="{ 'overflow-auto justify-center': doc._extension !== 'pmd' }"
+      class="flex font-body h-full m-4 overflow-auto"
+      :class="{
+        'overflow-hidden': doc._extension === 'pmd',
+        'justify-center': doc._extension === 'md',
+      }"
     >
       <Slides
         v-if="doc._extension === 'pmd'"
