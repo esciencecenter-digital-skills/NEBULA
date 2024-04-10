@@ -1,10 +1,10 @@
 <template>
-    <div class="flex flex-col h-full w-full bg-gentleBlue">
+    <div class="flex flex-col h-full w-full ">
       <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
         Module {{$route.params.module}}
       </h2>
 
-      <div class="flex flex-auto no-wrap text-left">
+      <div class="flex no-wrap text-left">
         <ContentList :path="'/modules/' + $route.params.module + '/'" v-slot="{ list }">
           <div v-for="chapter in list" :key="chapter._path">
             <nuxt-link :to="chapter._path">

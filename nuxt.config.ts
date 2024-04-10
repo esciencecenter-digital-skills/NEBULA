@@ -1,17 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '../content_config/config.json'
+import { publicProps } from '../research-software-support/config.json'
 
 console.log("print publicprops", publicProps)
 
 export default defineNuxtConfig({
-  runtimeConfig: { 
-    public: publicProps, 
-    }
+  runtimeConfig: {
+    public: publicProps,
+  }
   ,
 
-  devtools: { enabled: true,
-              pages: true },
+  devtools: {
+    enabled: true,
+    pages: true
+  },
   modules: [
     'nuxt-content-assets', // should be loaded before the content module!
     '@nuxt/content',
@@ -43,7 +45,7 @@ export default defineNuxtConfig({
         repo: `${publicProps.repoOwner}/${publicProps.repoName}`,
         branch: `${publicProps.repoTag}`,
         dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
-    // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
       }
     }
   },
@@ -51,8 +53,8 @@ export default defineNuxtConfig({
     baseURL: `/${publicProps.repoName}/`
   },
   generate: {
-      nojekyll: true,
-      fallback: '404.html'
+    nojekyll: true,
+    fallback: '404.html'
   },
   ssr: true,
   target: "static",

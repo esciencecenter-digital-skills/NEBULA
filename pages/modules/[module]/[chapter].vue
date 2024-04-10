@@ -1,26 +1,24 @@
 <template>
-    <main>
-      <div class="flex flex-auto justify-end overflow-auto p-4 bg-gentleBlue font-body h-full w-full">
-        <div class="flex-auto w-full overflow-auto">
-            <ContentDoc v-slot="{ doc }">
-                <div v-if="doc._extension==='pmd'">
-                    <Slides :slidescontent="baseUrl + doc._file"/>
-                </div>
-                <div v-else>
-                    <ContentRenderer :value="doc" class="prose mb-6" />
-                </div>
-            </ContentDoc>
-        </div>
-      </div>
-    </main>
-
-
+  <ContentDoc v-slot="{ doc }">
+    <div
+      class="flex font-body m-4 bg-eScienceWhite"
+      :class="{
+        'overflow-hidden h-full': doc._extension === 'pmd',
+        'justify-center py-8': doc._extension === 'md',
+      }"
+    >
+      <Slides
+        v-if="doc._extension === 'pmd'"
+        :slidescontent="baseUrl + doc._file"
+      />
+      <ContentRenderer v-else :value="doc" class="prose-lg max-w-2xl" />
+    </div>
+  </ContentDoc>
 </template>
 
 <script setup lang="ts">
-    const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
 
-    console.log(runtimeConfig.public.repoName);
-    const baseUrl = "/" + runtimeConfig.public.repoName + "/"
-
+console.log(runtimeConfig.public.repoName);
+const baseUrl = "/" + runtimeConfig.public.repoName + "/";
 </script>
