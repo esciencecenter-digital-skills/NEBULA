@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Download content_config
+    - name: Construct content_config
       run: |
         mkdir ../content_config
         echo '{
@@ -40,15 +40,5 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: |
-        pwd
-        ls -la
-        cd ../
-        pwd
-        ls -la
-        cd content_config
-        cat config.json
-        cd ../NEBULA
-        pwd
     - run: npm ci
     - run: npm run build
