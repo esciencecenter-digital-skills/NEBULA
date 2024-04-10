@@ -20,13 +20,15 @@ jobs:
     - name: Download content_config
       run: |
         mkdir ../content_config
-        echo '{ "publicprops":{
-          "title": "NEBULA test platform",
-          "repoName":"research-software-support",
-          "repoOwner": "esciencecenter-digital-skills",
-          "repoTag": "main",
-          "categoryOrder": ["empty"]
-          }}' > ../content_config/config.json
+        echo '{
+          "publicProps": {
+              "title": "NEBULA test platform",
+              "repoName":"research-software-support",
+              "repoOwner": "esciencecenter-digital-skills",
+              "repoTag": "main",
+              "categoryOrder": ["Getting Started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"]
+          }
+        }' > ../content_config/config.json
         cd ../content_config
         pwd
         ls -la
@@ -44,5 +46,8 @@ jobs:
         cd ../
         pwd
         ls -la
+        cd content_config
+        cat config.json
+        cd ../../NEBULA
         npm ci
     - run: npm run build
