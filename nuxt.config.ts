@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '../config.json'
+import { publicProps } from '../content_config/config.json'
 
 console.log("print publicprops", publicProps)
 
