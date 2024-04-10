@@ -42,4 +42,6 @@ jobs:
         pwd
         ls -la
         npm ci
+        cd ../
+        ls -la
     - run: npm run build
