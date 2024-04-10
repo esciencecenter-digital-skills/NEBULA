@@ -1,0 +1,85 @@
+name: Deploy to gh-pages
+
+on:
+  workflow_call:
+    inputs:
+      config_artifact_name: 
+        required: true
+        type: string
+      nebula_ref:
+        required: true
+        type: string
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download content_config
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.config_artifact_name }}
+          path: ./content_config
+
+      
+      - name: Set environment variable
+        run: |
+          pwd
+          ls -la
+          cd content_config
+          ls -la
+          echo "CONFIG_PATH=${PWD}/config.json" >> $GITHUB_ENV
+          cat config.json
+          cd -
+      
+      - name: test environment variable
+        run: echo $CONFIG_PATH 
+
+      - name: Checkout NEBULA framework
+        uses: actions/checkout@v4
+        with:
+          repository: esciencecenter-digital-skills/NEBULA
+          ref: ${{ inputs.nebula_ref }}
+          path: ./NEBULA
+
+      - name: Check current NEBULA reference
+        run: echo "branch=$GITHUB_REF"
+
+      - name: Check contents
+        run: pwd
+
+      - name: Setup node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
+
+      - name: Install dependencies
+        run: |
+          pwd
+          ls -la
+          cd NEBULA
+          npm ls | grep nuxt
+          npm ci
+          npm ls | grep nuxt
+
+      - name: Generate
+        run: |
+          cd NEBULA
+          npx nuxi generate
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./NEBULA/.output/public
