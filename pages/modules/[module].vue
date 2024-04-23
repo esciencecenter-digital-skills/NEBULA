@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-full w-full ">
+    <div class="flex flex-col h-full w-full p-5">
       <h2 class="prose-2xl font-display font-bold text-eSciencePurple w-full pl-2">
         Module {{$route.params.module}}
       </h2>
