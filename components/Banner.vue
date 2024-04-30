@@ -10,13 +10,17 @@
         
         <div class="flex align-middle items-center">
           <div class="p-5">
-            <NuxtLink :to="`/about`"  class="p-5">
-              About
-            </NuxtLink>
             
             <NuxtLink :to="`/`" class="p-5">
               Modules
             </NuxtLink>
+
+            <ContentList :path="'/main'"  v-slot="{ list }">
+              <nuxt-link v-for="page in list" :key="page._path" :to="page._path" class="p-5">
+                    {{ page.title }}
+              </nuxt-link>
+            </ContentList>
+            
           </div>
             <NuxtLink to="https://www.github.com/esciencecenter-digital-skills/research-software-support" target="_blank" class=" pl-10">
               <img src="~/public/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px" height="50px" class="align-middle">
