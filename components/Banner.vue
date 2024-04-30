@@ -8,8 +8,8 @@
           </NuxtLink>
         </div>
         
-        <div class="flex">
-          <div class="p-5 pr-10">
+        <div class="flex align-middle items-center">
+          <div class="p-5">
             <NuxtLink :to="`/about`"  class="p-5">
               About
             </NuxtLink>
@@ -18,12 +18,9 @@
               Modules
             </NuxtLink>
           </div>
-          <div>
-            <NuxtLink to="https://www.github.com/esciencecenter-digital-skills/research-software-support" target="_blank" class="p-5">
-              <img src="~/public/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px">
+            <NuxtLink to="https://www.github.com/esciencecenter-digital-skills/research-software-support" target="_blank" class=" pl-10">
+              <img src="~/public/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px" height="50px" class="align-middle">
             </NuxtLink>
-          </div>
-
         </div>
 
     </div>
