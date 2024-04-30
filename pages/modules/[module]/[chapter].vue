@@ -3,8 +3,8 @@
     <div
       class="flex font-body m-4 bg-eScienceWhite"
       :class="{
-        'overflow-hidden h-full': doc._extension === 'pmd',
-        'justify-center py-8': doc._extension === 'md',
+        'overflow-hidden h-full ': doc._extension === 'pmd',
+        'justify-center py-8 mx-60': doc._extension === 'md',
       }"
     >
       <Slides
@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig();
+  const runtimeConfig = useRuntimeConfig();
 
-console.log(runtimeConfig.public.repoName);
-const baseUrl = "/" + runtimeConfig.public.repoName + "/";
+  console.log(runtimeConfig.public.repoName);
+  const baseUrl = "/" + runtimeConfig.public.repoName + "/";
 </script>
