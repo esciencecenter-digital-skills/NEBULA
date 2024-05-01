@@ -39,7 +39,7 @@ jobs:
     needs: get_content_config
     permissions: 
       contents: write
-    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@main
+    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@layout
     with:
       config_artifact_name: content_config
       nebula_ref: ${{ github.sha }}
