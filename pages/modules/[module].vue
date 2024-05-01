@@ -1,8 +1,12 @@
 <template>
+
     <div class="flex flex-col h-full w-full p-5">
-      <h2 class="prose-2xl font-display mx-16 font-bold text-eSciencePurple w-full pl-2">
-        Module {{$route.params.module}}
-      </h2>
+
+      <ContentDoc v-slot="{ doc }">
+        <h2 class="prose-2xl font-display mx-16 font-bold text-eSciencePurple w-full pl-2">
+          Module {{ doc.title }}
+        </h2>
+      </ContentDoc>
 
       <div class="flex no-wrap text-left ml-20">
           <div v-for="chapter in chapterList" :key="chapter._path">
