@@ -1,12 +1,9 @@
 <template>
-  <div class="flex flex-col w-screen bg-gentleBlue h-screen overflow-hidden">
-    <Banner />
-
-    <div class="flex-1 overflow-auto">
+  <NuxtLayout :name="layout">
       <NuxtPage />
-    </div>
-    <Footer />
-  </div>
+  </NuxtLayout>
 </template>
-<script setup>
+
+<script setup lang="ts">
+  const layout = "main"
 </script>

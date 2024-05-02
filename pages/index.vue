@@ -12,7 +12,7 @@
                         :title="modObject.title"
                         :author="modObject.author"
                         :thumbnail="`/${config.repoName}${modObject._path}/media/${modObject.thumbnail}`"
-                        :url="`${modObject._path}/info`"
+                        :url="`${modObject._path}`"
                     />
                 </ContentList>
             </div>

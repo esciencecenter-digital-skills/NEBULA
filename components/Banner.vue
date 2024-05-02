@@ -1,5 +1,5 @@
 <template>
-    <div class="flex p-5 bg-eScienceWhite text-xl items-center text-eSciencePurple">
+    <div class="flex p-5 bg-eScienceWhite text-xl items-center text-eSciencePurple border-b-2">
         <div class="flex flex-1 gap-10 items-center ">
           <NuxtLink :to="`/`">
             <div class="text-4xl mx-16 font-bold">

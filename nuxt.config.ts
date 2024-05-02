@@ -2,8 +2,6 @@
 import tailwindTypography from '@tailwindcss/typography'
 import { publicProps } from '../content_config/config.json'
 
-console.log("print publicprops", publicProps)
-
 export default defineNuxtConfig({
   runtimeConfig: {
     public: publicProps,
@@ -39,13 +37,22 @@ export default defineNuxtConfig({
     },
 
     sources: {
-      github: {
-        prefix: '/', // Prefix for routes used to query contents
-        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-        repo: `${publicProps.repoOwner}/${publicProps.repoName}`,
-        branch: `${publicProps.repoTag}`,
-        dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
-        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+      // The github content source can be used to render the content from a remote github repository 
+
+      // github: {
+      //   prefix: '/', // Prefix for routes used to query contents
+      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
+      //   repo: `${publicProps.repoOwner}/${publicProps.repoName}`,
+      //   branch: `${publicProps.repoTag}`,
+      //   dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
+      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+      // }
+
+      // The block below is for rendering local changes, uncomment this and change the base path to point to your local content folder/repo, also comment out the github source above
+      local_fs: {
+        prefix: '/', 
+        driver: 'fs',
+        base: "../research-software-support", 
       }
     }
   },
