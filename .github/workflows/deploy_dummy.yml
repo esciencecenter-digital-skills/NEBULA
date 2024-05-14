@@ -11,7 +11,7 @@ jobs:
   deploy_with_NEBULA:
     permissions: 
       contents: write
-    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml${{ github.sha }}
+    uses: esciencecenter-digital-skills/NEBULA/.github/workflows/deploy.yml@${{ github.sha }}
     with:
       content_organization: esciencecenter-digital-skills
       content_repository: research-software-support
