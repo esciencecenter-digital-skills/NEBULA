@@ -45,7 +45,7 @@ jobs:
       - name: test environment variable
         run: |
           echo $CONFIG_PATH 
-          cd $CONFIG_PATH
+          cd ${{ inputs.content_repository }}
           pwd
           ls -la
           cat config.json
