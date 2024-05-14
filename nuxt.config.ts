@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '../content_config/config.json'
+import tailwindTypography from '@tailwindcss/typography';
+import dotenv from 'dotenv';
+import fs from 'fs'
+
+dotenv.config();
+console.log(`content path =`, process.env.CONTENT_PATH)
+
+var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
+console.log(`config file title =`, publicProps.title)
+console.log(`baseURL =`, publicProps.baseURL)
+
 
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -40,12 +49,12 @@ export default defineNuxtConfig({
       local_fs: {
         prefix: `/`, 
         driver: `fs`,
-        base: `../${publicProps.repoName}`, 
+        base: `${process.env.CONTENT_PATH}`
       }
     }
   },
   app: {
-    baseURL: `/${publicProps.repoName}/`
+    baseURL: `/${publicProps.baseURL}`
   },
   generate: {
     nojekyll: true,
