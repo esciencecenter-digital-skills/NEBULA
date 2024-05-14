@@ -38,13 +38,14 @@ jobs:
           cd ./${{ inputs.content_repository }}
           ls -la
 
-      - name: Set environment variable
+      - name: Set environment variables
         run: |
-          echo "CONFIG_PATH=${PWD}/${{ inputs.content_repository }}/config.json" >> $GITHUB_ENV
+          echo "CONTENT_PATH=${PWD}/${{ inputs.content_repository }}" >> $GITHUB_ENV
+
 
       - name: test environment variable
         run: |
-          echo $CONFIG_PATH 
+          echo $CONTENT_PATH 
           cd ${{ inputs.content_repository }}
           pwd
           ls -la
@@ -59,7 +60,6 @@ jobs:
 
       - name: Check current NEBULA 
         run: | 
-          echo "Workflow NEBULA ref=$GITHUB_REF"
           echo "Checked-out NEBULA ref=${{ inputs.nebula_ref }}"
           cd ./NEBULA
           pwd
