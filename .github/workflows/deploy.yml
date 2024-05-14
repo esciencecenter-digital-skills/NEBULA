@@ -3,7 +3,13 @@ name: Deploy to gh-pages
 on:
   workflow_call:
     inputs:
-      config_artifact_name: 
+      content_organization: 
+        required: true
+        type: string
+      content_repository: 
+        required: true
+        type: string
+      content_ref: 
         required: true
         type: string
       nebula_ref:
@@ -18,25 +24,31 @@ jobs:
       contents: write
 
     steps:
-      - name: Download content_config
-        uses: actions/download-artifact@v4
+      - name: Checkout content
+        uses: actions/checkout@v4
         with:
-          name: ${{ inputs.config_artifact_name }}
-          path: ./content_config
-
+          repository: ${{ inputs.content_organization }}/${{ inputs.content_repository }}
+          ref: ${{ inputs.content_ref }}
+          path: ./${{ inputs.content_repository }}
       
-      - name: Set environment variable
+      - name: Check content
         run: |
           pwd
           ls -la
-          cd content_config
+          cd ./${{ inputs.content_repository }}
           ls -la
-          echo "CONFIG_PATH=${PWD}/config.json" >> $GITHUB_ENV
-          cat config.json
-          cd -
-      
+
+      - name: Set environment variable
+        run: |
+          echo "CONFIG_PATH=${PWD}/${{ inputs.content_repository }}/config.json" >> $GITHUB_ENV
+
       - name: test environment variable
-        run: echo $CONFIG_PATH 
+        run: |
+          echo $CONFIG_PATH 
+          cd $CONFIG_PATH
+          pwd
+          ls -la
+          cat config.json
 
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
@@ -45,11 +57,13 @@ jobs:
           ref: ${{ inputs.nebula_ref }}
           path: ./NEBULA
 
-      - name: Check current NEBULA reference
-        run: echo "branch=$GITHUB_REF"
-
-      - name: Check contents
-        run: pwd
+      - name: Check current NEBULA 
+        run: | 
+          echo "Workflow NEBULA ref=$GITHUB_REF"
+          echo "Checked-out NEBULA ref=${{ inputs.nebula_ref }}"
+          cd ./NEBULA
+          pwd
+          ls -la
 
       - name: Setup node env
         uses: actions/setup-node@v3
@@ -69,6 +83,8 @@ jobs:
           pwd
           ls -la
           cd NEBULA
+          pwd
+          ls -la
           npm ls | grep nuxt
           npm ci
           npm ls | grep nuxt
