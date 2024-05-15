@@ -34,13 +34,6 @@ jobs:
           ref: ${{ inputs.content_ref }}
           path: ./${{ inputs.content_repository }}
       
-      - name: Check content
-        run: |
-          pwd
-          ls -la
-          cd ./${{ inputs.content_repository }}
-          ls -la
-
       - name: Set content path environment variable
         run: echo "CONTENT_PATH=${PWD}/${{ inputs.content_repository }}" >> $GITHUB_ENV
 
@@ -50,29 +43,12 @@ jobs:
           echo "BASE_URL=${{ inputs.base_url }}" >> $GITHUB_ENV
           echo "The base url in config.json will be overwritten with ${{ inputs.base_url }}"
 
-
-      - name: test environment variable
-        run: |
-          echo $CONTENT_PATH 
-          cd ${{ inputs.content_repository }}
-          pwd
-          ls -la
-          cat config.json
-          echo $
-
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
         with:
           repository: esciencecenter-digital-skills/NEBULA
           ref: ${{ inputs.nebula_ref }}
           path: ./NEBULA
-
-      - name: Check current NEBULA 
-        run: | 
-          echo "Checked-out NEBULA ref=${{ inputs.nebula_ref }}"
-          cd ./NEBULA
-          pwd
-          ls -la
 
       - name: Setup node env
         uses: actions/setup-node@v3
@@ -89,14 +65,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pwd
-          ls -la
           cd NEBULA
-          pwd
-          ls -la
-          npm ls | grep nuxt
           npm ci
-          npm ls | grep nuxt
 
       - name: Generate
         run: |
