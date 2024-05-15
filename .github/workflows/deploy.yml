@@ -1,4 +1,4 @@
-name: Deploy to gh-pages
+name: Base NEBULA deployment reusable workflow
 
 on:
   workflow_call:

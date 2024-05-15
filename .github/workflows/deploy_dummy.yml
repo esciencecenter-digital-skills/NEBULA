@@ -1,4 +1,4 @@
-name: Deploy to gh-pages
+name: Dummy NEBULA content deployment
 
 on: 
   push:
