@@ -47,8 +47,8 @@ jobs:
       - name: Set base url environment variable
         if: "${{ inputs.base_url != '' }}"
         run: |
-          echo "BASE_URL=$${{ inputs.base_url }}" >> $GITHUB_ENV
-          echo "THe base url in config.json will be overwritten with $${{ inputs.base_url }}"
+          echo "BASE_URL=${{ inputs.base_url }}" >> $GITHUB_ENV
+          echo "The base url in config.json will be overwritten with ${{ inputs.base_url }}"
 
 
       - name: test environment variable
@@ -58,6 +58,7 @@ jobs:
           pwd
           ls -la
           cat config.json
+          echo $
 
       - name: Checkout NEBULA framework
         uses: actions/checkout@v4
