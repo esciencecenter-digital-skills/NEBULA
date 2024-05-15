@@ -1,6 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '../content_config/config.json'
+import tailwindTypography from '@tailwindcss/typography';
+import dotenv from 'dotenv';
+import fs from 'fs'
+
+dotenv.config();
+console.log(`content path =`, process.env.CONTENT_PATH)
+
+var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
+console.log(`config file title =`, publicProps.title)
+console.log(`baseURL =`, publicProps.baseURL)
+if("BASE_URL" in process.env) {
+  publicProps.baseURL = process.env.BASE_URL
+  console.log(`baseURL updated to =`, publicProps.baseURL)
+}
 
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -37,27 +49,15 @@ export default defineNuxtConfig({
     },
 
     sources: {
-      // The github content source can be used to render the content from a remote github repository 
-
-      // github: {
-      //   prefix: '/', // Prefix for routes used to query contents
-      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-      //   repo: `${publicProps.repoOwner}/${publicProps.repoName}`,
-      //   branch: `${publicProps.repoTag}`,
-      //   dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
-      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
-      // }
-
-      // The block below is for rendering local changes, uncomment this and change the base path to point to your local content folder/repo, also comment out the github source above
       local_fs: {
-        prefix: '/', 
-        driver: 'fs',
-        base: "../research-software-support", 
+        prefix: `/`, 
+        driver: `fs`,
+        base: `${process.env.CONTENT_PATH}`
       }
     }
   },
   app: {
-    baseURL: `/${publicProps.repoName}/`
+    baseURL: `/${publicProps.baseURL}`
   },
   generate: {
     nojekyll: true,
