@@ -1,17 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindTypography from '@tailwindcss/typography'
-import { publicProps } from '../content_config/config.json'
+import tailwindTypography from '@tailwindcss/typography';
+import dotenv from 'dotenv';
+import fs from 'fs'
 
-console.log("print publicprops", publicProps)
+dotenv.config();
+console.log(`content path =`, process.env.CONTENT_PATH)
+
+var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
+console.log(`config file title =`, publicProps.title)
+console.log(`baseURL =`, publicProps.baseURL)
+if("BASE_URL" in process.env) {
+  publicProps.baseURL = process.env.BASE_URL
+  console.log(`baseURL updated to =`, publicProps.baseURL)
+}
 
 export default defineNuxtConfig({
-  runtimeConfig: { 
-    public: publicProps, 
-    }
+  runtimeConfig: {
+    public: publicProps,
+  }
   ,
 
-  devtools: { enabled: true,
-              pages: true },
+  devtools: {
+    enabled: true,
+    pages: true
+  },
   modules: [
     'nuxt-content-assets', // should be loaded before the content module!
     '@nuxt/content',
@@ -29,31 +41,35 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
     documentDriven: true,
-    sources: {
-      github: {
-        prefix: '/', // Prefix for routes used to query contents
-        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-        repo: `${publicProps.repoOwner}/${publicProps.repoName}`,
-        branch: `${publicProps.repoTag}`,
-        dir: "/", // Directory where contents are located. It could be a subdirectory of the repository.
-    // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
-      }
 
+    markdown: {
+      remarkPlugins: [
+        'remark-directive'
+      ]
+    },
+
+    sources: {
+      local_fs: {
+        prefix: `/`, 
+        driver: `fs`,
+        base: `${process.env.CONTENT_PATH}`
+      }
     }
   },
   app: {
-    baseURL: `/${publicProps.repoName}/`
+    baseURL: `/${publicProps.baseURL}`
   },
   generate: {
-      nojekyll: true,
-      fallback: '404.html'
+    nojekyll: true,
+    fallback: '404.html'
   },
   ssr: true,
   target: "static",
 
+  css: ['~/layouts/style.scss'],
+
   // https://nuxt.com/docs/api/configuration/nuxt-config
   postcss: {
-    css: ['./layouts/'],
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
