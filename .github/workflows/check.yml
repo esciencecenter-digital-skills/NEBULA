@@ -23,6 +23,7 @@ jobs:
         echo '{
           "publicProps": {
               "title": "NEBULA test platform",
+              "baseURL": "NEBULA"
               "repoName":"research-software-support",
               "repoOwner": "esciencecenter-digital-skills",
               "repoTag": "main",

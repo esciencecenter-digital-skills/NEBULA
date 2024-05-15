@@ -9,7 +9,10 @@ console.log(`content path =`, process.env.CONTENT_PATH)
 var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
 console.log(`config file title =`, publicProps.title)
 console.log(`baseURL =`, publicProps.baseURL)
-
+if("BASE_URL" in process.env) {
+  publicProps.baseURL = process.env.BASE_URL
+  console.log(`baseURL updated to =`, publicProps.baseURL)
+}
 
 export default defineNuxtConfig({
   runtimeConfig: {

@@ -15,6 +15,9 @@ on:
       nebula_ref:
         required: true
         type: string
+      base_url:
+        required: false
+        type: string
 
 jobs:
   build_and_deploy:
@@ -38,9 +41,14 @@ jobs:
           cd ./${{ inputs.content_repository }}
           ls -la
 
-      - name: Set environment variables
+      - name: Set content path environment variable
+        run: echo "CONTENT_PATH=${PWD}/${{ inputs.content_repository }}" >> $GITHUB_ENV
+
+      - name: Set base url environment variable
+        if: "${{ inputs.base_url != '' }}"
         run: |
-          echo "CONTENT_PATH=${PWD}/${{ inputs.content_repository }}" >> $GITHUB_ENV
+          echo "BASE_URL=$${{ inputs.base_url }}" >> $GITHUB_ENV
+          echo "THe base url in config.json will be overwritten with $${{ inputs.base_url }}"
 
 
       - name: test environment variable
