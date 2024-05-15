@@ -1,24 +1,23 @@
 <template>
+
   <ContentDoc v-slot="{ doc }">
-    <div
-      class="flex font-body m-4 bg-eScienceWhite"
-      :class="{
-        'overflow-hidden h-full': doc._extension === 'pmd',
-        'justify-center py-8': doc._extension === 'md',
-      }"
-    >
-      <Slides
-        v-if="doc._extension === 'pmd'"
-        :slidescontent="baseUrl + doc._file"
-      />
-      <ContentRenderer v-else :value="doc" class="prose-lg max-w-2xl" />
+    <div v-if="doc._extension === 'pmd'" class='overflow-hidden h-full '>
+      <Slides :slidescontent="baseUrl + doc._file"/>
+    </div>
+    
+    <div v-else  class="flex justify-center items-center">
+      <div class="flex m-4 my-10 w-2/3 bg-eScienceWhite justify-center py-8 px-12" >
+        <ContentRenderer :value="doc" class="font-body prose-lg max-w-4xl" />
+      </div>
     </div>
   </ContentDoc>
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig();
-
-console.log(runtimeConfig.public.repoName);
-const baseUrl = "/" + runtimeConfig.public.repoName + "/";
+  const runtimeConfig = useRuntimeConfig();
+  const route = useRoute();
+  const chapterList = await queryContent('/modules/' + route.params.module + '/')
+    .sort({ order: 1, $numeric: true })
+    .find();
+  const baseUrl = "/" + runtimeConfig.public.repoName + "/";
 </script>
