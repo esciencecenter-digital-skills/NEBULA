@@ -17,23 +17,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Construct content_config
-      run: |
-        mkdir ../content_config
-        echo '{
-          "publicProps": {
-              "title": "NEBULA test platform",
-              "baseURL": "NEBULA"
-              "repoName":"research-software-support",
-              "repoOwner": "esciencecenter-digital-skills",
-              "repoTag": "main",
-              "categoryOrder": ["Getting Started", "Reusability", "Publishing & Citing", "Upcoming (under construction)"]
-          }
-        }' > ../content_config/config.json
-        cd ../content_config
-        pwd
-        ls -la
-        cat config.json
+    - name: Checkout content
+      uses: actions/checkout@v4
+      with:
+        repository: esciencecenter-digital-skills/NEBULA-content-template
+        ref: main
+        path: ./content
+
+    - name: Set content path environment variable
+      run: echo "CONTENT_PATH=${PWD}/content" >> $GITHUB_ENV
 
     
     - name: Run CI on Node.js 18.x
