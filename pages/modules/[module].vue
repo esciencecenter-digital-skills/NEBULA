@@ -3,10 +3,9 @@
       <div class="flex flex-col h-full w-full p-5">
 
         <ContentDoc v-slot="{ doc }">
-          <h2 class="prose-2xl font-display mx-16 font-bold text-eSciencePurple w-full pl-2">
-            Module: {{ doc.title }} <br>
-            <!-- Module: {{ modObject }} -->
-          </h2>
+            <h2 class="prose-2xl font-display mx-16 font-bold text-eSciencePurple w-full pl-2">
+              Module: {{ route.params.module }}
+            </h2>
         </ContentDoc>
         <ChapterBar/>
         <NuxtPage />  
@@ -15,6 +14,4 @@
 
 <script setup lang="ts">
   const route = useRoute();
-  console.log("this is", route.params)
-
 </script>
