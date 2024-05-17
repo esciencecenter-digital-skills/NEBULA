@@ -9,7 +9,7 @@
             {{ title }}
           </h3>
         </div>
-        <img :src="thumbnail" alt="module icon" class="max-w-xl rounded-tr-3xl h-48">
+        <img :src="thumbnail" alt="module icon" class="max-w-xs rounded-tr-3xl h-48">
       </div>
     </div>
   </NuxtLink>
