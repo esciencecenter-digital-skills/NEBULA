@@ -2,14 +2,14 @@
   <NuxtLink :to="url">
     <!-- relative parent needed for absolute positioning of svg badges-->
     <div class="relative">
+      <!-- Module card -->
       <div class="flex flex-row bg-eScienceWhite shadow-xl max-w-xl rounded-bl-3xl rounded-tr-3xl h-48">
-        <!-- Module cards -->
         <div class="prose font-display m-4 mr-10">
           <h3>
             {{ title }}
           </h3>
         </div>
-        <img :src="thumbnail" alt="module icon" class="max-w-xs rounded-tr-3xl">
+        <img :src="thumbnail" alt="module icon" class="max-w-xl rounded-tr-3xl h-48">
       </div>
     </div>
   </NuxtLink>
