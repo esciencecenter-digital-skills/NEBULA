@@ -1,7 +1,8 @@
 <template>
 
   <ContentDoc v-slot="{ doc }">
-    <div v-if="doc._extension === 'pmd'" class='overflow-hidden h-full '>
+    {{ doc.type }}
+    <div v-if="doc.type === 'slides'" class='overflow-hidden h-full '>
       <Slides :slidescontent="baseUrl + doc._file"/>
     </div>
     
