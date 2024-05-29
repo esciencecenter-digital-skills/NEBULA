@@ -2,10 +2,12 @@
   <div class="flex relative box-border h-full reveal">
     <div class="slides flex h-full w-full">
       <section
-        :data-markdown="slidescontent"
+        data-markdown
         data-separator="^\r?\n---\r?\n$"
         data-separator-notes="^Note:"
-      />
+      >
+      {{ stripFrontmatter(slidescontent) }}
+      </section>
     </div>
   </div>
 </template>
@@ -16,6 +18,11 @@ export default {
     slidescontent: {
       type: String,
       default: "Missing Document",
+    },
+  },
+  methods: {
+    stripFrontmatter (mdstr) {
+      return mdstr.replace(/^---$.*?^---$/ms, '');
     },
   },
 };

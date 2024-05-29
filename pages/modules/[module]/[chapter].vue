@@ -1,9 +1,8 @@
 <template>
 
   <ContentDoc v-slot="{ doc }">
-    {{ doc.type }}
     <div v-if="doc.type === 'slides'" class='overflow-hidden h-full '>
-      <Slides :slidescontent="baseUrl + doc._file"/>
+      <Slides :slidescontent="doc.plainText"/>
     </div>
     
     <div v-else  class="flex justify-center items-center">
