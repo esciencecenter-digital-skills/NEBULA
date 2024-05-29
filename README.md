@@ -1,8 +1,13 @@
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/esciencecenter-digital-skills/NEBULA/blob/main/LICENSE)
+
 # NEBULA
 
 The NEBULA (Nuxt & eScience Based Universal Learning Application) framework can be used to create an easily maintainable, version-controllable, web-based lesson collection. It is based on [Nuxt.js](https://nuxtjs.org/) and [Vue.js](https://vuejs.org/).
 
 NEBULA is being created as part of the Netherlands eScience Center Digital Skills programme.
+
+Copyright 2023-2024 Netherlands eScience Center
+
 
 ## Documentation
 
