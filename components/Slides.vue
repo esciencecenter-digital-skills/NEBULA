@@ -51,8 +51,6 @@ onMounted(() => {
   // (Importing statically causes errors during server side rendering)
   if (process.browser) {
     import("reveal.js").then((revealModule) => {
-      console.log("Check", revealModule);
-
       const deck = new revealModule.default();
       deck.initialize({
         controls: true,
@@ -64,8 +62,6 @@ onMounted(() => {
         showNotes: true,
         plugins: [RevealMarkdown, RevealNotes, Decorations, Search],
       });
-
-      console.log("Check", deck);
     });
   }
 });
