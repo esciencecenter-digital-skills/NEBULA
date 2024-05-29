@@ -21,6 +21,14 @@ export default {
     },
   },
   methods: {
+    /**
+      Takes a string containing raw markdown (mdstr) and returns it with
+      the yaml frontmatter removed. It does this by deleting the first
+      instance of text between "---" separators. Currently this means that
+      if the markdown file is missing the frontmatter, this function will
+      probably remove the first slide (since reveal.js defaults to "---"
+      as a slides separator.
+    */
     stripFrontmatter (mdstr) {
       return mdstr.replace(/^---$.*?^---$/ms, '');
     },
