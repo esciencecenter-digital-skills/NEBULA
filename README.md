@@ -6,7 +6,7 @@ The NEBULA (Nuxt & eScience Based Universal Learning Application) framework can 
 
 NEBULA is being created as part of the Netherlands eScience Center Digital Skills programme.
 
-Copyright 2024 Netherlands eScience Center
+Copyright 2023-2024 Netherlands eScience Center
 
 
 ## Documentation
