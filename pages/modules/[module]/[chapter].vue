@@ -19,5 +19,5 @@
   const chapterList = await queryContent('/modules/' + route.params.module + '/')
     .sort({ order: 1, $numeric: true })
     .find();
-  const baseUrl = "/" + runtimeConfig.public.repoName + "/";
+  const baseUrl = "/" + runtimeConfig.public.baseURL + "/";
 </script>
