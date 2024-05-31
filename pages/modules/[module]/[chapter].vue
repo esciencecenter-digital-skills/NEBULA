@@ -1,8 +1,8 @@
 <template>
 
   <ContentDoc v-slot="{ doc }">
-    <div v-if="doc._extension === 'pmd'" class='overflow-hidden h-full '>
-      <Slides :slidescontent="baseUrl + doc._file"/>
+    <div v-if="doc.type === 'slides'" class='overflow-hidden h-full '>
+      <Slides :slidescontent="doc.plainText"/>
     </div>
     
     <div v-else  class="flex justify-center items-center">
@@ -19,5 +19,5 @@
   const chapterList = await queryContent('/modules/' + route.params.module + '/')
     .sort({ order: 1, $numeric: true })
     .find();
-  const baseUrl = "/" + runtimeConfig.public.repoName + "/";
+  const baseUrl = "/" + runtimeConfig.public.baseURL + "/";
 </script>

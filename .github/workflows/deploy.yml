@@ -18,7 +18,11 @@ on:
       base_url:
         required: false
         type: string
-
+      deploy_to_ghpages: 
+        description: 'Deploys to gh-pages branch if set to true (default). Set this to false for testing builds/generation.'
+        required: false
+        default: true
+        type: boolean
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -74,6 +78,7 @@ jobs:
           npx nuxi generate
 
       - name: Deploy
+        if: ${{ inputs.deploy_to_ghpages }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
