@@ -15,7 +15,7 @@ For elaborate setup instructions and other documentation, see the [NEBULA docume
 
 ## Content directory/repository
 
-To use NEBULA you will need to setup a content directory or repository. See the [NEBULA content template repository](https://github.com/esciencecenter-digital-skills/NEBULA-content-template) or the [NEBULA documentation on creating content](https://github.com/esciencecenter-digital-skills/NEBULA-docs/blob/add_local_rendering_docs/content-repo-instantiation.md) for more information.
+To use NEBULA you will need to setup a content directory or repository. See the [NEBULA content template repository](https://github.com/esciencecenter-digital-skills/NEBULA-content-template) or the [NEBULA documentation on creating content](https://github.com/esciencecenter-digital-skills/NEBULA-docs/blob/main/content-repo-instantiation.md) for more information.
 
 ## Install dependencies
 
@@ -40,3 +40,7 @@ Start the development server on `http://localhost:3000`:
 # npm
 npm run dev
 ```
+
+# Contributing
+
+If you want to contribute to the NEBULA framework, please read the [contributing guidelines](https://github.com/esciencecenter-digital-skills/NEBULA/blob/main/CONTRIBUTING.md).
