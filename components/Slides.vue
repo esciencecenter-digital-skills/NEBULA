@@ -3,7 +3,8 @@
     <div class="slides flex h-full w-full">
       <section
         data-markdown
-        data-separator="^\r?\n---\r?\n$"
+        data-separator="^\r?\n===\r?\n$"
+        data-separator-vertical="^\r?\n==\r?\n$"
         data-separator-notes="^Note:"
       >
       {{ stripFrontmatter(slidescontent) }}
