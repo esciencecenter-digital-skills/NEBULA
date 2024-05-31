@@ -2,10 +2,13 @@
   <div class="flex relative box-border h-full reveal">
     <div class="slides flex h-full w-full">
       <section
-        :data-markdown="slidescontent"
-        data-separator="^\r?\n---\r?\n$"
+        data-markdown
+        data-separator="^\r?\n===\r?\n$"
+        data-separator-vertical="^\r?\n==\r?\n$"
         data-separator-notes="^Note:"
-      />
+      >
+      {{ stripFrontmatter(slidescontent) }}
+      </section>
     </div>
   </div>
 </template>
@@ -16,6 +19,19 @@ export default {
     slidescontent: {
       type: String,
       default: "Missing Document",
+    },
+  },
+  methods: {
+    /**
+      Takes a string containing raw markdown (mdstr) and returns it with
+      the yaml frontmatter removed. It does this by deleting the first
+      instance of text between "---" separators. Currently this means that
+      if the markdown file is missing the frontmatter, this function will
+      probably remove the first slide (since reveal.js defaults to "---"
+      as a slides separator.
+    */
+    stripFrontmatter (mdstr) {
+      return mdstr.replace(/^---$.*?^---$/ms, '');
     },
   },
 };
@@ -36,8 +52,6 @@ onMounted(() => {
   // (Importing statically causes errors during server side rendering)
   if (process.browser) {
     import("reveal.js").then((revealModule) => {
-      console.log("Check", revealModule);
-
       const deck = new revealModule.default();
       deck.initialize({
         controls: true,
@@ -49,8 +63,6 @@ onMounted(() => {
         showNotes: true,
         plugins: [RevealMarkdown, RevealNotes, Decorations, Search],
       });
-
-      console.log("Check", deck);
     });
   }
 });
