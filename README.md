@@ -17,6 +17,16 @@ For elaborate setup instructions and other documentation, see the [NEBULA docume
 
 To use NEBULA you will need to setup a content directory or repository. See the [NEBULA content template repository](https://github.com/esciencecenter-digital-skills/NEBULA-content-template) or the [NEBULA documentation on creating content](https://github.com/esciencecenter-digital-skills/NEBULA-docs/blob/main/content-repo-instantiation.md) for more information.
 
+
+## Link to the content directory
+
+To make sure that NEBULA knows which content to build, we create the following environment variable:
+
+```bash
+export CONTENT_PATH="~/path/to/your/content/directory"
+```
+
+
 ## Install dependencies
 
 Install the dependencies using the node package manager:
@@ -24,12 +34,6 @@ Install the dependencies using the node package manager:
 ```bash
 # npm
 npm install
-```
-
-## Link to the content directory
-
-```bash
-export CONTENT_PATH="~/path/to/your/content/directory"
 ```
 
 ## Local development build
