@@ -1,10 +1,10 @@
 {
-    "publicProps": {
-        "title": "Research Software Support",
-        "baseURL": "research-software-support",
-        "repoName":"research-software-support",
-        "repoOwner": "esciencecenter-digital-skills",
-        "organization": "Netherlands eScience Center",
-        "categoryOrder": ["Getting started", "Reusability", "Publishing & Citing", "Development", "Upcoming (under construction)"]
-    }
+  "publicProps": {
+    "title": "Add a title for your lesson/project",
+    "baseURL": "NEBULA-content-template",
+    "repoName": "NEBULA-content-template",
+    "repoOwner": "esciencecenter-digital-skills",
+    "organization": "Netherlands eScience Center",
+    "categoryOrder": ["Category1", "Category2"]
+  }
 }
