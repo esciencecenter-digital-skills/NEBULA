@@ -2,73 +2,49 @@
 
 # NEBULA
 
-The NEBULA (Nuxt & eScience Based Universal Learning Application) framework can be used to create an easily maintainable, version-controllable, web-based lesson collection. It is based on [Nuxt.js](https://nuxtjs.org/) and [Vue.js](https://vuejs.org/).
+Copyright 2023-2024 Netherlands eScience Center
+
+The NEBULA (Nuxt & eScience Based Universal Learning Application) framework can be used to create an easily maintainable, version-controllable, web-based lesson collection. It uses [Nuxt.js](https://nuxtjs.org/) and [Vue.js](https://vuejs.org/).
 
 NEBULA is being created as part of the Netherlands eScience Center Digital Skills programme.
 
-Copyright 2023-2024 Netherlands eScience Center
+For elaborate setup instructions and other documentation, see the [NEBULA documentation](https://github.com/esciencecenter-digital-skills/NEBULA-docs)
 
 
-## Documentation
+# Quick setup
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Content directory/repository
 
-## Setup
+To use NEBULA you will need to setup a content directory or repository. See the [NEBULA content template repository](https://github.com/esciencecenter-digital-skills/NEBULA-content-template) or the [NEBULA documentation on creating content](https://github.com/esciencecenter-digital-skills/NEBULA-docs/blob/main/content-repo-instantiation.md) for more information.
 
-Make sure to install the dependencies:
+
+## Link to the content directory
+
+To make sure that NEBULA knows which content to build, we create the following environment variable:
+
+```bash
+export CONTENT_PATH="~/path/to/your/content/directory"
+```
+
+
+## Install dependencies
+
+Install the dependencies using the node package manager:
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
 ```
 
-## Development Server
+## Local development build
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
-## Production
+# Contributing
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+If you want to contribute to the NEBULA framework, please read the [contributing guidelines](https://github.com/esciencecenter-digital-skills/NEBULA/blob/main/CONTRIBUTING.md).
