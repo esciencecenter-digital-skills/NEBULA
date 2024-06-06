@@ -76,10 +76,21 @@ jobs:
         run: |
           cd NEBULA
           npx nuxi generate
+      
+      - name: Fetch gh-pages branch debugging
+        run: |
+          cd ./${{ inputs.content_repository }}
+          git status
+          git fetch
+          git status
+          git checkout gh-pages
+          git fetch
+          git status
+          git log
 
       - name: Deploy
         if: ${{ inputs.deploy_to_ghpages }}
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./NEBULA/.output/public
