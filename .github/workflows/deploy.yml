@@ -31,6 +31,15 @@ jobs:
       contents: write
 
     steps:
+      - name: Print inputs
+        run: |
+          echo content_organization: ${{ inputs.content_organization }}
+          echo content_repository: ${{ inputs.content_repository }}
+          echo content_ref: ${{ inputs.content_ref }}
+          echo nebula_ref: ${{ inputs.nebula_ref }}
+          echo base_url: ${{ inputs.base_url }}
+          echo deploy_to_ghpages: ${{ inputs.deploy_to_ghpages }}
+
       - name: Checkout content
         uses: actions/checkout@v4
         with:
