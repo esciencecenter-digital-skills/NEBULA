@@ -76,17 +76,6 @@ jobs:
         run: |
           cd NEBULA
           npx nuxi generate
-      
-      - name: Fetch gh-pages branch debugging
-        run: |
-          cd ./${{ inputs.content_repository }}
-          git status
-          git fetch
-          git status
-          git checkout gh-pages
-          git fetch
-          git status
-          git log
 
       - name: Deploy
         if: ${{ inputs.deploy_to_ghpages }}
