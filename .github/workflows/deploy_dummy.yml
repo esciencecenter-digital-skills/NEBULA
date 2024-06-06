@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy_with_NEBULA:
@@ -20,6 +17,3 @@ jobs:
       base_url: NEBULA
       nebula_ref: ${{ github.sha }}
       deploy_to_ghpages: true
-
-
-
