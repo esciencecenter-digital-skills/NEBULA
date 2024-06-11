@@ -8,6 +8,9 @@
           <h3>
             {{ title }}
           </h3>
+          <p>
+            {{ description }}
+          </p>
         </div>
         <img :src="thumbnail" alt="module icon" class="max-w-xs rounded-tr-3xl h-48">
       </div>
@@ -26,6 +29,10 @@ export default {
     author: {
       type: String,
       default: 'Author'
+    },
+    description: {
+      type: String,
+      default: 'Description not available'
     },
     thumbnail: {
       type: String,
