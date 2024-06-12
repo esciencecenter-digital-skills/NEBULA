@@ -29,7 +29,7 @@
     const modQuery: QueryBuilderParams = { 
         path: '/modules', 
         where: [{ visibility: 'visible' }], 
-        sort: [{ id:1, $numeric:true }] 
+        sort: [{ order:1, $numeric:true }] 
     }
 
           
