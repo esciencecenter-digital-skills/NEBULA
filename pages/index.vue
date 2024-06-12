@@ -11,7 +11,7 @@
                         :key="modObject.id"
                         :title="modObject.title"
                         :author="modObject.author"
-                        :description="modObject.description"
+                        :abstract="modObject.abstract"
                         :thumbnail="`/${config.baseURL}/${modObject._path}/media/${modObject.thumbnail}`"
                         :url="`${modObject._path}/info`"
                     />

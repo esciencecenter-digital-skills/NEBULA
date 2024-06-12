@@ -9,7 +9,7 @@
             {{ title }}
           </h3>
           <p>
-            {{ description }}
+            {{ abstract }}
           </p>
         </div>
         <div class="w-1/3 " >
@@ -32,7 +32,7 @@ export default {
       type: String,
       default: 'Author'
     },
-    description: {
+    abstract: {
       type: String,
       default: 'Description not available'
     },
