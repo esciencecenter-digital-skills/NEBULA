@@ -7,10 +7,17 @@
 @import url('reveal.js/dist/reveal.css');
 @import url('~/layouts/nlesc-decorations.scss');
 
-p, ul, ol{
+p {
   a{
    text-decoration: underline;
- }
+  }
+
+}
+
+ul {
+    list-style-type: disc; 
+    list-style-type: circle; 
+    list-style-position: inside; 
 }
 
 #footer{
