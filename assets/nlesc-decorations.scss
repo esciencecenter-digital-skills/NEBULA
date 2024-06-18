@@ -51,6 +51,7 @@ $heading4Size: 1.5em;
 // By default, all decorations are out of view/hidden
 #overlay {
 	position: absolute;
+	transform: translateY(100vh);
 	inset: 0;
 	opacity: 0;
 	transition: opacity 1s;
@@ -80,7 +81,7 @@ $heading4Size: 1.5em;
   }
 
   #right-e {
-	transition: opacity 1s;
+	transition: opacity 1s .7s;
 	opacity: 0;
 	position: absolute;
 	top: -100%;
@@ -89,7 +90,8 @@ $heading4Size: 1.5em;
   }
 
   #left-e {
-	transition: left 1s, bottom 1s;
+	transition: opacity 1s .7s;
+	opacity: 0;
 	position: absolute;
 	width: 6%;
 	left: -100%;
@@ -103,12 +105,13 @@ $heading4Size: 1.5em;
 	position: absolute;
 	bottom: 0;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
   }
 
   #touch-pane {
 	background-color: white;
 	transition: opacity 1s;
+	transform: translateY(100vh);
 	opacity: 0;
 	position: absolute;
 	left: 0;
@@ -126,9 +129,10 @@ $heading4Size: 1.5em;
   }
 
   #empowering {
-	transition: opacity 1s;
+	transition: opacity 1s .5s;
 	opacity: 0;
 	position: absolute;
+	transform: translateY(100vh);
 	left: 6%;
 	right: 52%;
 	bottom: 0;
@@ -189,21 +193,20 @@ $heading4Size: 1.5em;
   }
 
   #purple-half-circle-bottom {
-	opacity: 0;
 	transition: opacity 1s;
 	position: absolute;
 	background-color: $eSciencePurple;
-	left: -50%;
-	bottom: 0%;
+	left: 0%;
+	bottom: -100%;
 	width: 15%;
 	height: 15%;
 	border-radius: 20vw 20vw 0 0;
 	z-index: 2;
+	opacity: 0;
   }
 
   #purple-half-circle-top {
 	transition: top 1s;
-	opacity: 1;
 	position: absolute;
 	background-color: $eSciencePurple;
 	left: 0;
@@ -215,16 +218,16 @@ $heading4Size: 1.5em;
   }
 
   #purple-half-circle-logo {
-	transition: opacity 1s;
+	transition: bottom 1s;
 	background-color: $eSciencePurple;
+	transform: translateY(100vh);
 	width: 36%;
 	height: 30%;
 	border-radius: 28vw 28vw 0 0;
 	z-index: 2;
 	position: absolute;
 	left: 0;
-	bottom: 0;
-	opacity: 0;
+	bottom: -100%;
 	img {
 	  position: relative;
 	  bottom: -34%;
@@ -274,10 +277,10 @@ $heading4Size: 1.5em;
   }
 
   // Define how decorations look when 'activated', using mixins to avoid repetition
-  @mixin white-overlay { #overlay { background-color: white; opacity: .8; } }
-  @mixin black-overlay { #overlay { background-color: black; opacity: .8; } }
-  @mixin blue-overlay { #overlay { background-color: $eScienceBlue; opacity: .8; } }
-  @mixin purple-overlay { #overlay { background-color: $eSciencePurple; opacity: .8; } }
+  @mixin white-overlay { #overlay { background-color: white; opacity: 1; transform: translateY(0vh);} }
+  @mixin black-overlay { #overlay { background-color: black; opacity: 1; transform: translateY(0vh);} }
+  @mixin blue-overlay { #overlay { background-color: $eScienceBlue; opacity: 1; transform: translateY(0vh);} }
+  @mixin purple-overlay { #overlay { background-color: $eSciencePurple; opacity: 1; transform: translateY(0vh);} }
 
   @mixin logo-color { #logo-color { left: 3%; opacity: 1; } }
   @mixin logo-white { #logo-white { left: 3%; opacity: 1; } }
@@ -292,10 +295,10 @@ $heading4Size: 1.5em;
   @mixin purple-half-circle-top { #purple-half-circle-top { top: 0; } }
   @mixin purple-half-circle-bottommiddle { #purple-half-circle-bottom { bottom: 0; left: 50%; opacity: 1; } }
   @mixin purple-half-circle-bottomleft { #purple-half-circle-bottom { bottom: 0; left: 18%; opacity: 1; } }
-  @mixin purple-half-circle-logo { #purple-half-circle-logo { opacity: 1; } }
+  @mixin purple-half-circle-logo { #purple-half-circle-logo { bottom:0; opacity: 1; transform: translateY(0vh);} }
 
-  @mixin touch-pane { #touch-pane { opacity: 1; } }
-  @mixin empowering { #empowering { opacity: 1} }
+  @mixin touch-pane { #touch-pane { opacity: 1; transform: translateY(0vh);}  }
+  @mixin empowering { #empowering { opacity: 1; transform: translateY(0vh);}  }
 
   @mixin blue-pane-left { #blue-pane { opacity: 1; left: 0; right: 50%;} }
   @mixin blue-pane-right { #blue-pane { opacity: 1; left: 50%; right: 0;} }
@@ -303,7 +306,7 @@ $heading4Size: 1.5em;
   @mixin right-e-top { #right-e { top: 10%; right: 0; opacity: 1; }}
   @mixin right-e-bottom { #right-e { top: 67%; right: 0; opacity: 1; }}
 
-  @mixin left-e { #left-e { bottom: 30%; left: 0} }
+  @mixin left-e { #left-e { bottom: 30%; left: 0; opacity: 1;} }
 
   @mixin globe { #globe { top: 38.6%; left: 46%; } }
   @mixin mail { #mail {	top: 46.6%; left: 46%; } }
@@ -376,6 +379,12 @@ $heading4Size: 1.5em;
 	  };
 	  a, p {
 		color: white;
+	  }
+	}
+	&.empty {
+	  h1, h2, h3, p, ul{
+	    text-align: left;
+	    padding-left: 10%;
 	  }
 	}
 
