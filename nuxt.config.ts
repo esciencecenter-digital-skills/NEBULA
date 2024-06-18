@@ -66,7 +66,7 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  css: ['~/layouts/style.scss'],
+  css: ['~/assets/style.scss'],
 
   // https://nuxt.com/docs/api/configuration/nuxt-config
   postcss: {
