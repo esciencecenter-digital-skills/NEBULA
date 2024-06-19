@@ -43,7 +43,7 @@ import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
 import RevealNotes from "reveal.js/plugin/notes/notes.js";
 //    import RevealMath from 'reveal.js/plugin/math/math.js'
 import Search from "reveal.js/plugin/search/search.esm.js";
-import Decorations from "~/layouts/nlesc-decorations.js";
+import Decorations from "~/assets/nlesc-decorations.js";
 
 onMounted(() => {
   console.log("Slides Mounted");
