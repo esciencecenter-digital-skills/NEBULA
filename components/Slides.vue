@@ -45,6 +45,7 @@ import RevealNotes from "reveal.js/plugin/notes/notes.js";
 import Search from "reveal.js/plugin/search/search.esm.js";
 import Decorations from "~/assets/nlesc-decorations.js";
 
+
 onMounted(() => {
   console.log("Slides Mounted");
 
