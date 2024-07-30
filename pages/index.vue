@@ -11,6 +11,7 @@
                         :key="modObject.id"
                         :title="modObject.title"
                         :author="modObject.author"
+                        :abstract="modObject.abstract"
                         :thumbnail="`/${config.baseURL}/${modObject._path}/media/${modObject.thumbnail}`"
                         :url="`${modObject._path}/info`"
                     />
@@ -28,7 +29,7 @@
     const modQuery: QueryBuilderParams = { 
         path: '/modules', 
         where: [{ visibility: 'visible' }], 
-        sort: [{ id:1, $numeric:true }] 
+        sort: [{ order:1, $numeric:true }] 
     }
 
           
