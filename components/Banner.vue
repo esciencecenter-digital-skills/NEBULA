@@ -3,7 +3,7 @@
         <div class="flex flex-1 gap-10 items-center ">
           <NuxtLink :to="`/`">
             <div class="text-4xl mx-16 font-bold">
-              {{ $config.public.title }}
+              {{ config.title }}
             </div>
           </NuxtLink>
         </div>
@@ -22,7 +22,7 @@
             </ContentList>
             
           </div>
-          <NuxtLink to="https://www.github.com/esciencecenter-digital-skills/research-software-support" target="_blank" class=" pl-10">
+          <NuxtLink :to="`https://www.github.com/${config.repoOwner}/${config.repoName}`" target="_blank" class=" pl-10">
             <img src="/icons/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px" height="50px" class="align-middle">
           </NuxtLink>
           <NuxtLink to="https://www.esciencecenter.nl" target="_blank" class="px-5">
@@ -33,6 +33,6 @@
     </div>
 </template>
 
-<script>
-  export default {}
+<script setup lang="ts">
+  const config = useRuntimeConfig().public
 </script>
