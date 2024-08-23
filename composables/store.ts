@@ -1,0 +1,1 @@
+export const useMyStore = () => useState('store', () => ({modTitle: "No Title"}))
