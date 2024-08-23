@@ -29,6 +29,13 @@ module.exports = {
       eScienceYellow: '#FFB213',
       eScienceWhite: '#FFFFFF',
       gentleBlue: '#e5f5fb'
+    }),
+    borderColor: theme => ({
+      eSciencePurple: '#380339',
+      eScienceBlue: '#009DDD',
+      eScienceYellow: '#FFB213',
+      eScienceWhite: '#FFFFFF',
+      gentleBlue: '#e5f5fb'
     })
   }
 }

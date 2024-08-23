@@ -1,8 +1,8 @@
 <template>
-    <div class="flex p-1 bg-eScienceWhite text-xl items-center text-eSciencePurple border-b-2">
+    <div class="flex p-1 bg-eScienceWhite text-xl items-center text-eSciencePurple z-10">
         <div class="flex flex-1 gap-10 items-center ">
           <NuxtLink :to="`/`">
-            <div class="text-2xl leading-6 mx-10 font-bold w-20">
+            <div class="text-2xl leading-6 mx-10 font-bold w-20  hover:text-eScienceBlue active:opacity-50">
               {{ $config.public.title }}
             </div>
           </NuxtLink>
@@ -11,12 +11,12 @@
         <div class="flex align-middle items-center">
           <div class="flex p-5">
             
-            <NuxtLink :to="`/`" class="p-5 hover:text-eScienceBlue">
+            <NuxtLink :to="`/`" class="p-5  hover:text-eScienceBlue active:opacity-50">
               Modules
             </NuxtLink>
 
             <ContentList :path="'/main'"  v-slot="{ list }">
-              <nuxt-link v-for="page in list" :key="page._path" :to="page._path" class="p-5 hover:text-eScienceBlue">
+              <nuxt-link v-for="page in list" :key="page._path" :to="page._path" class="p-5  hover:text-eScienceBlue active:opacity-50">
                     {{ page.title }}
               </nuxt-link>
             </ContentList>

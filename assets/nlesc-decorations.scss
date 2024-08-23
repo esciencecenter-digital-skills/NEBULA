@@ -256,6 +256,7 @@ $heading4Size: 1.5em;
 	  height: 50vh;
 	  border-radius: 0 0 10vw 10vw;
 	}
+
 	.box {
 	  position: absolute;
 	  right: 10vw;
@@ -265,6 +266,41 @@ $heading4Size: 1.5em;
 	  background: linear-gradient(45deg,  transparent 10vw, $eSciencePurple 0) bottom left;
 	  background-image: radial-gradient(circle at 0 100%, rgba(204,0,0,0) 5vw, $eSciencePurple 15px)
 	}
+  }
+
+  .main-blob {
+	position: absolute;
+	display: flex;
+	overflow: hidden;
+	z-index: 0;
+  }
+  .yellow-bottom {
+	transition: bottom 1s;
+	bottom: -50vh;
+	left: 0;
+	background-color: $eScienceYellow;
+	transition: bottom 1s;
+	width: 15vw;
+	height: 50vh;
+	border-radius: 0 15vw 0 0;
+  }
+  .slide-bottom {
+	transition: bottom 1s;
+	bottom: 0;
+  }
+  .purple-top {		
+	transition: top 1s;
+	top: -40vh;
+	right: 0;
+	background-color: $eSciencePurple;
+	width: 25vw;
+	max-width: 40vh;
+	height: 40vh;
+	border-radius: 0 0 0 25vw;
+  }
+  .slide-top {
+	transition: top 1s;
+	top: 0;
   }
 
   #globe, #phone, #mail {
@@ -398,4 +434,3 @@ $heading4Size: 1.5em;
 	z-index: 10;
 	}
   }
-
