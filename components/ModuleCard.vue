@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="url" @click.native="store.modTitle = title">
+    <NuxtLink :to="url" @click.native="store.modTitle = title" class="z-10">
       <!-- relative parent needed for absolute positioning of svg badges-->
       <div class="relative z-10">
         <!-- Module card -->

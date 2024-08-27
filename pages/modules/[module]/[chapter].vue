@@ -1,7 +1,7 @@
 <template>
 
   <ContentDoc v-slot="{ doc }">
-    <div v-if="doc.type === 'slides'" class='overflow-hidden h-full border-8 border-gentleBlue z-10'>
+    <div v-if="doc.type === 'slides'" class='overflow-hidden h-full border-8 rounded-xl border-eScienceWhite z-10'>
       <Slides :slidescontent="doc.plainText"/>
     </div>
     
