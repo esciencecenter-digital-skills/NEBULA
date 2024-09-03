@@ -384,6 +384,18 @@ $heading4Size: 1.5em;
 		padding-left: 10%;
 	  }
 	}
+	&.center {
+		h1, h2, h3, p, ul{
+		  text-align: center;
+		  padding-left: 0%;
+		}
+		iframe, img{
+			display: block;
+			border-style:none;
+			margin: 0 auto;
+
+		}
+	  }
 	&.about {
 	  @include logo-part-white;
 	  @include blue-pane-left;
