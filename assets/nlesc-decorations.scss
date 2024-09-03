@@ -55,7 +55,7 @@ $heading4Size: 1.5em;
 	inset: 0;
 	opacity: 0;
 	transition: opacity 1s;
-	z-index: 1;
+	z-index: 0;
 	.opacity-10 { opacity: .1; }
 	.opacity-20 { opacity: .2; }
 	.opacity-30 { opacity: .3; }
@@ -256,6 +256,7 @@ $heading4Size: 1.5em;
 	  height: 50vh;
 	  border-radius: 0 0 10vw 10vw;
 	}
+
 	.box {
 	  position: absolute;
 	  right: 10vw;
@@ -265,6 +266,39 @@ $heading4Size: 1.5em;
 	  background: linear-gradient(45deg,  transparent 10vw, $eSciencePurple 0) bottom left;
 	  background-image: radial-gradient(circle at 0 100%, rgba(204,0,0,0) 5vw, $eSciencePurple 15px)
 	}
+  }
+
+  .main-blob {
+	position: absolute;
+	z-index: 0;
+  }
+  .yellow-bottom {
+	transition: bottom 1s;
+	bottom: -50vh;
+	left: 0;
+	background-color: $eScienceYellow;
+	transition: bottom 1s;
+	width: 15vw;
+	height: 50vh;
+	border-radius: 0 15vw 0 0;
+  }
+  .slide-bottom {
+	transition: bottom 1s;
+	bottom: 0;
+  }
+  .purple-top {		
+	transition: top 1s;
+	top: -40vh;
+	right: 0;
+	background-color: $eSciencePurple;
+	width: 25vw;
+	max-width: 40vh;
+	height: 40vh;
+	border-radius: 0 0 0 25vw;
+  }
+  .slide-top {
+	transition: top 1s;
+	top: 0;
   }
 
   #globe, #phone, #mail {
@@ -350,6 +384,18 @@ $heading4Size: 1.5em;
 		padding-left: 10%;
 	  }
 	}
+	&.center {
+		h1, h2, h3, p, ul{
+		  text-align: center;
+		  padding-left: 0%;
+		}
+		iframe, img{
+			display: block;
+			border-style:none;
+			margin: 0 auto;
+
+		}
+	  }
 	&.about {
 	  @include logo-part-white;
 	  @include blue-pane-left;
@@ -398,4 +444,3 @@ $heading4Size: 1.5em;
 	z-index: 10;
 	}
   }
-

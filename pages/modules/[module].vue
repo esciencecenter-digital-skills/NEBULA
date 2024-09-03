@@ -4,7 +4,7 @@
 
         <ContentDoc v-slot="{ doc }">
             <h2 class="prose-2xl font-display mx-16 font-bold text-eSciencePurple w-full pl-2">
-              Module: {{ route.params.module }}
+              {{ store.modTitle  }}
             </h2>
         </ContentDoc>
         <ChapterBar/>
@@ -13,5 +13,5 @@
 </template>
 
 <script setup lang="ts">
-  const route = useRoute();
+const store = useMyStore()
 </script>
