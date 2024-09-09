@@ -379,8 +379,8 @@ $heading4Size: 1.5em;
 	&.standard {
 	  @include logo-color;
 	  @include yellow-flag;
-	  h1, h2, h3, p, ul{
-		text-align: left;
+	  text-align: left;
+	  h1, h2, h3, p{
 		padding-left: 10%;
 	  }
 	};
