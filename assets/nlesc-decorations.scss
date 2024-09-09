@@ -375,27 +375,29 @@ $heading4Size: 1.5em;
 		color: white;
 		margin: 6% 6% 6% 15%;
 	  }
-	}
+	};
 	&.standard {
 	  @include logo-color;
 	  @include yellow-flag;
-	  h1, h2, h3, p, ul{
-		text-align: left;
+	  text-align: left;
+	  h1, h2, h3, p{
 		padding-left: 10%;
 	  }
-	}
+	};
 	&.center {
-		h1, h2, h3, p, ul{
-		  text-align: center;
-		  padding-left: 0%;
-		}
-		iframe, img{
-			display: block;
-			border-style:none;
-			margin: 0 auto;
-
-		}
+	  h1, h2, h3, p{
+	  text-align: center;
+	    padding-left: 0%;
 	  }
+	  iframe, img{
+	  	display: block;
+	  	border-style:none;
+	  	margin: 0 auto;  
+	  }
+	};
+	&.black-haze{
+		@include black-overlay;
+	}
 	&.about {
 	  @include logo-part-white;
 	  @include blue-pane-left;
@@ -407,7 +409,7 @@ $heading4Size: 1.5em;
 		text-align: left;
 		padding-left: 55%;
 	  };
-	}
+	};
 	&.keepintouch {
 	  @include logo-color;
 	  @include blue-overlay;
