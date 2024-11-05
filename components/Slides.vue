@@ -1,5 +1,5 @@
 <template>
-  <div class="flex relative box-border h-full reveal">
+  <div class="flex relative box-border h-full reveal bg-eScienceWhite z-10">
     <div class="slides flex h-full w-full">
       <section
         data-markdown

@@ -17,13 +17,13 @@ if("BASE_URL" in process.env) {
 export default defineNuxtConfig({
   runtimeConfig: {
     public: publicProps,
-  }
-  ,
+  },
 
   devtools: {
     enabled: true,
     pages: true
   },
+
   modules: [
     'nuxt-content-assets', // should be loaded before the content module!
     '@nuxt/content',
@@ -56,16 +56,18 @@ export default defineNuxtConfig({
       }
     }
   },
+
   app: {
     baseURL: `/${publicProps.baseURL}`
   },
+
   generate: {
     nojekyll: true,
     fallback: '404.html'
   },
+
   ssr: true,
   target: "static",
-
   css: ['~/assets/style.scss'],
 
   // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -83,4 +85,6 @@ export default defineNuxtConfig({
       process.exit(0)
     }
   },
+
+  compatibilityDate: '2024-09-04'
 })
