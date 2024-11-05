@@ -25,8 +25,8 @@
           <NuxtLink :to="`https://www.github.com/${config.repoOwner}/${config.repoName}`" target="_blank" class=" pl-10">
             <img src="/icons/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px" height="50px" class="align-middle">
           </NuxtLink>
-          <NuxtLink to="https://www.esciencecenter.nl" target="_blank" class="px-5">
-            <img src="/nlesc-logo.svg" alt="Netherlands eScience Center Logo" width="200px">
+          <NuxtLink :to="`${config.organizationURL}`" target="_blank" class="px-5">
+            <img :src="`/${config.baseURL}/main/${config.organizationLogo}`" alt="Organization Logo" width="200px">
           </NuxtLink>
         </div>
 
