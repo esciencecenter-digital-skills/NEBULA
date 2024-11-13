@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+
 export default {
   props: {
     slidescontent: {
@@ -41,7 +42,6 @@ export default {
 import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
 
 import RevealNotes from "reveal.js/plugin/notes/notes.js";
-//    import RevealMath from 'reveal.js/plugin/math/math.js'
 import Search from "reveal.js/plugin/search/search.esm.js";
 import Decorations from "~/assets/nlesc-decorations.js";
 
@@ -50,18 +50,23 @@ onMounted(() => {
 
   // On client side only, dynamically load reveal.js
   // (Importing statically causes errors during server side rendering)
+  // For different (unclear) reasons, importing RevealMath alongside
+  // the other plugins causes a "Plugin not found" error if the page
+  // is reloaded. Therefore it is also imported async here.
   if (process.browser) {
     import("reveal.js").then((revealModule) => {
-      const deck = new revealModule.default();
-      deck.initialize({
-        controls: true,
-        progress: true,
-        center: true,
-        hash: true,
-        transition: "none",
-        embedded: true,
-        showNotes: true,
-        plugins: [RevealMarkdown, RevealNotes, Decorations, Search],
+      import("reveal.js/plugin/math/math.esm.js").then((RevealMath) => {
+        const deck = new revealModule.default();
+        deck.initialize({
+	  controls: true,
+	  progress: true,
+	  center: true,
+	  hash: true,
+	  transition: "none",
+	  embedded: true,
+	  showNotes: true,
+	  plugins: [RevealMarkdown, RevealMath.default, RevealNotes, Decorations, Search],
+	});
       });
     });
   }
