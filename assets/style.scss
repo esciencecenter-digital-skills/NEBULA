@@ -14,6 +14,11 @@
   ul, ol, li{
     list-style-type: revert;
   }
+
+  table, th, td{
+    border: 1px solid;
+    padding: 5px;
+  }
   
   p, ul, ol, li{
     a{
