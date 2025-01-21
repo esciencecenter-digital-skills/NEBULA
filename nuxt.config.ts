@@ -15,14 +15,33 @@ if(!process.env.CONTENT_PATH) {
   `)
 }
 
+console.log("Reading config file from content path...")
 var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
-console.log(`config file title =`, publicProps.title)
+console.log(`title =`, publicProps.title)
 console.log(`baseURL =`, publicProps.baseURL)
+
 if("BASE_URL" in process.env) {
   publicProps.baseURL = process.env.BASE_URL
   console.log(`baseURL updated to =`, publicProps.baseURL)
 }
 
+console.log(`organizationURL =`, publicProps.organizationURL)
+if(!publicProps.organizationURL) {
+  console.log("\"organizationURL\" is not defined, default to nlesc url");
+  publicProps.organizationURL = "https://www.esciencecenter.nl";
+ }
+
+console.log(`organizationLogo =`, publicProps.organizationLogo)
+if(!publicProps.organizationLogo) {
+  console.log("\"style\" is not defined, default to nlesc logo");
+  publicProps.organizationLogo = "/styles/nlesc/logo.svg";
+ }
+console.log(`style =`, publicProps.style)
+
+if(!publicProps.style) {
+  console.log("\"style\" is not defined, default to nlesc style");
+  publicProps.style = "nlesc";
+ }
 
 
 export default defineNuxtConfig({
