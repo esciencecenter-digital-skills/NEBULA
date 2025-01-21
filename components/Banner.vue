@@ -26,7 +26,7 @@
             <img src="/icons/github-mark.svg" alt="Netherlands eScience Center Logo" width="50px" height="50px" class="align-middle">
           </NuxtLink>
           <NuxtLink to="https://www.esciencecenter.nl" target="_blank" class="px-5">
-            <img src="/nlesc-logo.svg" alt="Netherlands eScience Center Logo" width="200px">
+            <img src="/styles/nlesc/logo.svg" alt="Netherlands eScience Center Logo" width="200px">
           </NuxtLink>
         </div>
 

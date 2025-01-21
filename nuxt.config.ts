@@ -14,6 +14,8 @@ if("BASE_URL" in process.env) {
   console.log(`baseURL updated to =`, publicProps.baseURL)
 }
 
+
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: publicProps,
@@ -58,7 +60,10 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: `/${publicProps.baseURL}`
+    baseURL: `/${publicProps.baseURL}` ,
+    head: {
+      link: [{ rel: 'icon', type: 'image', href: `/styles/${publicProps.style}/favicon.png` }]
+    },
   },
 
   generate: {
