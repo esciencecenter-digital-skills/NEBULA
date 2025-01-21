@@ -8,9 +8,7 @@
             <!-- modules -->
             <ContentList :query="modQuery" v-slot="{ list }" class="z-10">
                 <ModuleCard v-for="modObject in list.filter(modObject => (modObject.category === category))"
-                :key="modObject.id"
                 :title="modObject.title"
-                :author="modObject.author"
                 :abstract="modObject.abstract"
                 :thumbnail="`${modObject._path}/media/${modObject.thumbnail}`"
                 :url="`${modObject._path}/info`"

@@ -25,27 +25,6 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: 'Title'
-    },
-    author: {
-      type: String,
-      default: 'Author'
-    },
-    abstract: {
-      type: String,
-      default: 'Description not available'
-    },
-    thumbnail: {
-      type: String,
-      default: './nlesc-logo.svg'
-    },
-    url: {
-      type: String,
-      default: '/'
-    }
-  }
+  props: ["title", "abstract", "thumbnail", "url"]
 }
 </script>
