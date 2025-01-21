@@ -14,10 +14,4 @@
 </template>
 
 <script setup lang="ts">
-  const runtimeConfig = useRuntimeConfig();
-  const route = useRoute();
-  const chapterList = await queryContent('/modules/' + route.params.module + '/')
-    .sort({ order: 1, $numeric: true })
-    .find();
-  const baseUrl = "/" + runtimeConfig.public.baseURL + "/";
 </script>
