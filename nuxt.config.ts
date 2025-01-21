@@ -4,7 +4,16 @@ import dotenv from 'dotenv';
 import fs from 'fs'
 
 dotenv.config();
-console.log(`content path =`, process.env.CONTENT_PATH)
+console.log(`Checking for content specified by CONTENT_PATH: `, process.env.CONTENT_PATH)
+
+if(!process.env.CONTENT_PATH) {
+  throw new Error(`
+    Required environment variable CONTENT_PATH is not set.\n
+    In bash, use e.g. export CONTENT_PATH=/path/to/content/dir to set this\n\n
+    The content directory should have the same structure as shown in:\n
+    https://github.com/esciencecenter-digital-skills/NEBULA-content-template
+  `)
+}
 
 var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
 console.log(`config file title =`, publicProps.title)

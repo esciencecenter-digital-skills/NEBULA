@@ -27,7 +27,7 @@ function initDecorations (deck) {
   <div id="purple-half-circle-bottom"></div>
   <div id="yellow-strip"></div>
   <div id="yellow-half-strip"></div>
-  <div id="touch-pane"><h3>Let's stay<br>in touch</h3></div>
+  <div id="touch-pane"><h3> </h3></div>
   <div id="empowering"><h3>“Empowering researchers across all disciplines through innovative research software”</h3></div>
   <div id="logo-color"><img src="/styles/${style}/logo-fc.svg"></div>
   <div id="logo-part-white"><img src="/styles/${style}/logo-fc-part-white.svg"></div>
