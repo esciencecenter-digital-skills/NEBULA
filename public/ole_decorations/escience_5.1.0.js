@@ -1,6 +1,3 @@
-// TODO: Remove JQuery dependency (or add integrity check)
-import 'https://code.jquery.com/jquery-3.4.1.min.js'
-
 export default {
   id: 'decorations',
   init: (deck) => {
@@ -10,6 +7,32 @@ export default {
 
 // TODO: Refactor this quick hack into a Reveal plugin form (it works at least)
 function initDecorations (Reveal) {
+
+var cssId = "nlesc_css"
+if (!document.getElementById(cssId))
+{
+	var link = document.createElement( "link" );
+	link.href = "/ole_decorations/escience_5.1.0.css";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	link.media = "screen,print";
+	document.head.appendChild( link );
+} else {
+	console.log("CSS exists already");
+}
+
+var fontId = "nlesc_fonts"
+if (!document.getElementById(fontId))
+{
+	var link = document.createElement('link');
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	link.media = "screen,print";
+	link.href = "https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Fira+Code:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap";
+	document.head.appendChild(link);
+} else {
+	console.log("font exists already");
+}
 
 const decoration_elements = `
 <div id="blue_pane_left" style="transition: opacity 1s; background-color: var(--nlesc-blue); opacity: 0; position: absolute; left: 0; right: 50%; bottom: 0; top: 0; z-index: 2;"></div>
@@ -21,13 +44,13 @@ const decoration_elements = `
 <div id="yellow_half_strip" style="opacity: 1; transition: bottom 1s; position: absolute; background-color: var(--nlesc-yellow); right: 50%; bottom: -25vw; width: 17vw; height: 25vw; border-radius: 20vw 0 0 0; z-index: 2;"></div>
 <div id="purple_strip_bottom" style="opacity: 1; transition: bottom 1s; position: absolute; background-color: var(--nlesc-purple); right: calc(50% + 17vw); bottom: -10vw; width: 16vw; height: 10vw; border-radius: 20vw 20vw 0 0; z-index: 2;"></div>
 <div id="logo_color" style="transition: opacity 1s, left 1s; opacity: 0; position: absolute; left: -12vw; top: 1.5vh; z-index: 2;">
-  <img style="width: 12vw;" src="./files/logo-fc.svg">
+  <img style="width: 12vw;" src="{{ assets }}/logo-fc.svg">
 </div>
 <div id="logo_part_white" style="transition: opacity 1s, left 1s; opacity: 0; position: absolute; left: -12vw; top: 1.5vh; z-index: 2;">
-  <img style="width: 12vw;" src="./files/logo-fc-part-white.svg">
+  <img style="width: 12vw;" src="{{ assets }}/logo-fc-part-white.svg">
 </div>
 <div id="logo_white" style="transition: opacity 1s, left 1s; opacity: 0; position: absolute; left: -12vw; top: 1.5vh; z-index: 2;">
-  <img style="width: 12vw;" src="./files/logo-fc-white.svg">
+  <img style="width: 12vw;" src="{{ assets }}/logo-fc-white.svg">
 </div>
 <div id="purple_overlay" style="background-color: var(--nlesc-purple); opacity: 0; transition: opacity 1s; position: absolute; left: 0; right: 0; bottom: 0; top: 0; z-index: 1;">
 </div>
@@ -40,10 +63,10 @@ const decoration_elements = `
 <div id="yellow_strip" style="background-color: var(--nlesc-yellow); transition: left 1s; width: 10vw; height: 70vh; border-radius: 10vw 10vw 0 0; z-index: 2; position: absolute; left: -10vw; bottom: 0;">
 </div>
 <div id="yellow_flag" style="background-color: var(--nlesc-yellow); transition: left 1s, bottom 1s; width: 10vh; height: 12vh; border-radius: 0 6vh 6vh 0; z-index: 3; position: absolute; left: -10vh; bottom: 5vh; margin: 0; padding: 0;">
-  <img id="left_e" src="./files/e-logo.svg" style="position: absolute; height: 10vh; margin: 1vh 0; padding: 0;"></img>
+  <img id="left_e" src="{{ assets }}/e-logo.svg" style="position: absolute; height: 10vh; margin: 1vh 0; padding: 0;"></img>
 </div>
 <div id="purple_half_circle_bottom" style="transition: bottom 1s; background-color: var(--nlesc-purple); width: 20vw; height: 10vw; border-radius: 20vw 20vw 0 0; z-index: 2; position: absolute; left: 0; bottom: -10vw;">
-  <img id="left_e" src="./files/logo-fc-part-white.svg" style="position: absolute; bottom: 2vw; left: 6vw; width: 8vw;"></img>
+  <img id="left_e" src="{{ assets }}/logo-fc-part-white.svg" style="position: absolute; bottom: 2vw; left: 6vw; width: 8vw;"></img>
 </div>
 <div id="purple_blob" style="transition: top 1s; position: absolute; display: flex; right: 0; top: -50vh; z-index: 2;">
   <div style="background-color: var(--nlesc-purple); width: 10vw; height: 25vh; border-radius: 0 0 10vw 10vw;">
@@ -57,7 +80,7 @@ const decoration_elements = `
   <div id="footer" style="text-align: right; line-height: 130%; padding: 0; margin: 1vw 1vw 1vw 3vw; bottom: 0; right: 0;">
   </div>
 </div>
-<img id="right_e" src="./files/letter-e.svg" style="transition: right 1s, top 1s; position: absolute; top: 10vh; right: -4vw; width: 4vw; z-index: 3;"></img>
+<img id="right_e" src="{{ assets }}/letter-e.svg" style="transition: right 1s, top 1s; position: absolute; top: 10vh; right: -4vw; width: 4vw; z-index: 3;"></img>
 `
 
 let root = document.documentElement;
@@ -65,7 +88,7 @@ let root = document.documentElement;
 function insertDecoration() {
   const contentDiv = document.getElementsByClassName("reveal");
   for (let i = 0; i < contentDiv.length; i++) {
-    contentDiv[i].insertAdjacentHTML("afterbegin", decoration_elements);
+    contentDiv[i].insertAdjacentHTML("afterbegin", decoration_elements.replace(/{{ assets }}/g, "/ole_decorations/assets"));
   };
   addDecorations();
 }
@@ -92,20 +115,20 @@ Reveal.on( 'ready', event => {
 } );
 
 
-var decoration = $('#decoration').html();
-console.log("decoration: ", decoration);
-if ( window.location.search.match( /print-pdf/gi ) ) {
-  // for pdf export
-  // 3. On Reveal.js ready event, copy decoration <div> into each `.slide-background` <div>
-  Reveal.addEventListener( 'ready', function( event ) {
-    $('.slide-background').append(decoration);
-  });
-}
-else {
-  // for viewing slides
-  $('div.reveal').append(decoration);
-  //$('#decoration').remove(); // without this the fadeIn/fadeOut below does not work. why is this necessary?
-};
+//var decoration = $('#decoration').html();
+//console.log("decoration: ", decoration);
+//if ( window.location.search.match( /print-pdf/gi ) ) {
+//  // for pdf export
+//  // 3. On Reveal.js ready event, copy decoration <div> into each `.slide-background` <div>
+//  Reveal.addEventListener( 'ready', function( event ) {
+//    document.getElementsByClassName('.slide-background').append(decoration);
+//  });
+//}
+//else {
+//  // for viewing slides
+//  document.querySelector('div.reveal').append(decoration);
+//  //$('#decoration').remove(); // without this the fadeIn/fadeOut below does not work. why is this necessary?
+//};
 function setLogoStyle(style) {
   //style must be one of {"logo_color","logo_white","logo_part_white"}
 
@@ -127,6 +150,22 @@ function getOpacity(data_state) {
 };
 function addDecorations() {
   console.log("set decorations")
+  var scripts = document.getElementsByTagName( 'script' );
+  var me = scripts[ scripts.length - 1 ];
+  //console.log("SRC: " + document.querySelector( 'script[src$="escience_5.1.0.js"]' ))
+  //console.log("SRC ME: " + document.scripts[document.scripts.length -1].src)
+  //console.log("SRC ME: " + me.text)
+  console.log("LOG START")
+  console.log("LOG: " + window.location.pathname)
+  console.log("LOG: " + location.pathname)
+  console.log("LOG END")
+  //for (var i = 0; i < scripts.length; ++i) {
+  //        console.log("SRC " + i + " text: " + scripts[i].text)
+  //        console.log("SRC " + i + " src: " + scripts[i].src)
+  //        console.log("SRC " + i + " crossOrigin: " + scripts[i].crossOrigin)
+  //        console.log("SRC " + i + " type: " + scripts[i].type)
+  //}
+
 
   var currentSlide = Reveal.getCurrentSlide();
   if (currentSlide.contains(currentSlide.querySelector('footer')))
