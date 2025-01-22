@@ -33,11 +33,11 @@ if(!publicProps.organizationURL) {
 
 console.log(`organizationLogo =`, publicProps.organizationLogo)
 if(!publicProps.organizationLogo) {
-  console.log("\"style\" is not defined, default to nlesc logo");
+  console.log("\"organizationLogo\" is not defined, default to nlesc logo");
   publicProps.organizationLogo = "/styles/nlesc/logo.svg";
  }
-console.log(`style =`, publicProps.style)
 
+console.log(`style =`, publicProps.style)
 if(!publicProps.style) {
   console.log("\"style\" is not defined, default to nlesc style");
   publicProps.style = "nlesc";
