@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="url" @click.native="store.modTitle = title" class="z-10">
+    <NuxtLink :to="url" class="z-10">
       <!-- relative parent needed for absolute positioning of svg badges-->
       <div class="relative z-10">
         <!-- Module card -->
@@ -21,32 +21,10 @@
 </template>
 
 <script setup>
-const store = useMyStore()
 </script>
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: 'Title'
-    },
-    author: {
-      type: String,
-      default: 'Author'
-    },
-    abstract: {
-      type: String,
-      default: 'Description not available'
-    },
-    thumbnail: {
-      type: String,
-      default: './nlesc-logo.svg'
-    },
-    url: {
-      type: String,
-      default: '/'
-    }
-  }
+  props: ["title", "abstract", "thumbnail", "url"]
 }
 </script>

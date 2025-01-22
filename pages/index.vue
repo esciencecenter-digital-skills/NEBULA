@@ -8,11 +8,9 @@
             <!-- modules -->
             <ContentList :query="modQuery" v-slot="{ list }" class="z-10">
                 <ModuleCard v-for="modObject in list.filter(modObject => (modObject.category === category))"
-                :key="modObject.id"
                 :title="modObject.title"
-                :author="modObject.author"
                 :abstract="modObject.abstract"
-                :thumbnail="`/${config.baseURL}/${modObject._path}/media/${modObject.thumbnail}`"
+                :thumbnail="`${modObject._path}/media/${modObject.thumbnail}`"
                 :url="`${modObject._path}/info`"
                 class="z-10"/>
             </ContentList>
@@ -32,5 +30,4 @@
         where: [{ visibility: 'visible' }], 
         sort: [{ order:1, $numeric:true }] 
     }
-         
 </script>
