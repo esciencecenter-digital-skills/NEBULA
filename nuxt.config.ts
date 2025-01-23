@@ -88,7 +88,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: `/${publicProps.baseURL}` ,
+    // baseURL: `/${publicProps.baseURL}/` ,
     head: {
       link: [{ rel: 'icon', type: 'image', href: `/styles/${publicProps.style}/favicon.png` }]
     },
