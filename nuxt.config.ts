@@ -16,37 +16,37 @@ if(!process.env.CONTENT_PATH) {
 }
 
 console.log("Reading config file from content path...")
-var publicProps = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
-console.log(`title =`, publicProps.title)
-console.log(`baseURL =`, publicProps.baseURL)
+var config = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).config
+console.log(`title =`, config.title)
+console.log(`baseURL =`, config.baseURL)
 
 if("BASE_URL" in process.env) {
-  publicProps.baseURL = process.env.BASE_URL
-  console.log(`baseURL updated to =`, publicProps.baseURL)
+  config.baseURL = process.env.BASE_URL
+  console.log(`baseURL updated to =`, config.baseURL)
 }
 
-console.log(`organizationURL =`, publicProps.organizationURL)
-if(!publicProps.organizationURL) {
+console.log(`organizationURL =`, config.organizationURL)
+if(!config.organizationURL) {
   console.log("\"organizationURL\" is not defined, default to nlesc url");
-  publicProps.organizationURL = "https://www.esciencecenter.nl";
+  config.organizationURL = "https://www.esciencecenter.nl";
  }
 
-console.log(`organizationLogo =`, publicProps.organizationLogo)
-if(!publicProps.organizationLogo) {
+console.log(`organizationLogo =`, config.organizationLogo)
+if(!config.organizationLogo) {
   console.log("\"organizationLogo\" is not defined, default to nlesc logo");
-  publicProps.organizationLogo = "/styles/nlesc/logo.svg";
+  config.organizationLogo = "/styles/nlesc/logo.svg";
  }
 
-console.log(`style =`, publicProps.style)
-if(!publicProps.style) {
+console.log(`style =`, config.style)
+if(!config.style) {
   console.log("\"style\" is not defined, default to nlesc style");
-  publicProps.style = "nlesc";
+  config.style = "nlesc";
  }
 
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    public: publicProps,
+    public: config,
   },
 
   devtools: {
@@ -88,9 +88,9 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: `/${publicProps.baseURL}` ,
+    baseURL: `/${config.baseURL}` ,
     head: {
-      link: [{ rel: 'icon', type: 'image', href: `/styles/${publicProps.style}/favicon.png` }]
+      link: [{ rel: 'icon', type: 'image', href: `/${config.baseURL}/styles/${config.style}/favicon.png` }]
     },
   },
 
