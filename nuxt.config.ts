@@ -16,7 +16,7 @@ if(!process.env.CONTENT_PATH) {
 }
 
 console.log("Reading config file from content path...")
-var config = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).config
+var config = JSON.parse(fs.readFileSync(`${process.env.CONTENT_PATH}/config.json`, 'utf-8')).publicProps
 console.log(`title =`, config.title)
 console.log(`baseURL =`, config.baseURL)
 
