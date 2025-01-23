@@ -10,7 +10,7 @@
                 <ModuleCard v-for="modObject in list.filter(modObject => (modObject.category === category))"
                 :title="modObject.title"
                 :abstract="modObject.abstract"
-                :thumbnail="`${modObject._path}/media/${modObject.thumbnail}`"
+                :thumbnail="`/${config.baseURL}/${modObject._path}/media/${modObject.thumbnail}`"
                 :url="`${modObject._path}/info`"
                 class="z-10"/>
             </ContentList>
