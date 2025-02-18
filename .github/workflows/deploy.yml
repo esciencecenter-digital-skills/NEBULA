@@ -83,6 +83,7 @@ jobs:
 
       - name: Generate
         run: |
+          export NEBULA_PRERENDER=TRUE
           cd NEBULA
           npx nuxi generate
 
