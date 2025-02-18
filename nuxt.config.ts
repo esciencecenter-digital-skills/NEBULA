@@ -46,7 +46,7 @@ if(config.organizationLogo) {
   
   console.log("NEBULA_PRERENDER =", process.env.NEBULA_PRERENDER)
   if(process.env.NEBULA_PRERENDER === "TRUE") {
-    config.organizationLogo = path.join(config.baseURL, config.organizationLogo);
+    config.organizationLogo = path.join("/", config.baseURL, config.organizationLogo);
     console.log(`Modified organizationLogo for pre-rendering =`, config.organizationLogo);
   }
 } else {
