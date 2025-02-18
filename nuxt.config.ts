@@ -29,19 +29,35 @@ console.log(`organizationURL =`, config.organizationURL)
 if(!config.organizationURL) {
   console.log("\"organizationURL\" is not defined, default to nlesc url");
   config.organizationURL = "https://www.esciencecenter.nl";
- }
+}
 
 console.log(`organizationLogo =`, config.organizationLogo)
-if(!config.organizationLogo) {
+if(config.organizationLogo) {
+  // This is a hack required to work around the current inconsistent behaviour of baseURL,
+  // *somewhere* in the deep nuxt stack, that is still not fixed. Essentially, baseURL is
+  // ignored when prerendering static sites, but then seemingly only for certain URLs.
+  // One of those affected URLs is the one pointing to the organization logo.
+  // As a workaround, we check for a `NEBULA_PRERENDER` env var that should be set to TRUE
+  // in any builds for e.g. ghpages. This prefixes the URL with the otherwise missing
+  // baseURL.
+  //
+  // Possibly relevant issue: https://github.com/nuxt/nuxt/issues/30850
+  
+  console.log("NEBULA_PRERENDER =", process.env.NEBULA_PRERENDER)
+  if(process.env.NEBULA_PRERENDER === "TRUE") {
+    config.organizationLogo = config.baseURL + config.organizationLogo;
+    console.log(`Modified organizationLogo for pre-rendering =`, config.organizationLogo)
+  }
+} else {
   console.log("\"organizationLogo\" is not defined, default to nlesc logo");
   config.organizationLogo = "/styles/nlesc/logo.svg";
- }
+}
 
 console.log(`style =`, config.style)
 if(!config.style) {
   console.log("\"style\" is not defined, default to nlesc style");
   config.style = "nlesc";
- }
+}
 
 
 export default defineNuxtConfig({
