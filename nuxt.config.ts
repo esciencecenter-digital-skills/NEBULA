@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindTypography from '@tailwindcss/typography';
 import dotenv from 'dotenv';
-import fs from 'fs'
+import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 console.log(`Checking for content specified by CONTENT_PATH: `, process.env.CONTENT_PATH)
@@ -45,8 +46,8 @@ if(config.organizationLogo) {
   
   console.log("NEBULA_PRERENDER =", process.env.NEBULA_PRERENDER)
   if(process.env.NEBULA_PRERENDER === "TRUE") {
-    config.organizationLogo = config.baseURL + config.organizationLogo;
-    console.log(`Modified organizationLogo for pre-rendering =`, config.organizationLogo)
+    config.organizationLogo = path.join(config.baseURL, config.organizationLogo);
+    console.log(`Modified organizationLogo for pre-rendering =`, config.organizationLogo);
   }
 } else {
   console.log("\"organizationLogo\" is not defined, default to nlesc logo");
