@@ -36,14 +36,17 @@ export default {
     },
   },
 };
+
+
 </script>
+
 
 <script setup lang="ts">
 import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
 
 import RevealNotes from "reveal.js/plugin/notes/notes.js";
 import Search from "reveal.js/plugin/search/search.esm.js";
-import Decorations from "~/assets/nlesc-decorations.js";
+import Escience from "escience_theme/escience_5.1.0.esm.js";
 
 onMounted(() => {
   console.log("Slides Mounted");
@@ -58,15 +61,15 @@ onMounted(() => {
       import("reveal.js/plugin/math/math.esm.js").then((RevealMath) => {
         const deck = new revealModule.default();
         deck.initialize({
-	  controls: true,
-	  progress: true,
-	  center: true,
-	  hash: true,
-	  transition: "none",
-	  embedded: true,
-	  showNotes: true,
-	  plugins: [RevealMarkdown, RevealMath.default, RevealNotes, Decorations, Search],
-	});
+          controls: true,
+          progress: true,
+          center: true,
+          hash: true,
+          transition: "none",
+          embedded: true,
+          showNotes: true,
+          plugins: [ RevealMarkdown, RevealMath.default, RevealNotes, Search, Escience ],
+        });
       });
     });
   }
