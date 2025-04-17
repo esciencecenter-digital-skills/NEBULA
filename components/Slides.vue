@@ -48,6 +48,7 @@ import RevealNotes from "reveal.js/plugin/notes/notes.js";
 import Search from "reveal.js/plugin/search/search.esm.js";
 import Decorations from "~/public/ole_decorations/escience_5.1.0.js";
 
+
 onMounted(() => {
   console.log("Slides Mounted");
 
