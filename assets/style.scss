@@ -17,15 +17,15 @@
     border: 1px solid;
     padding: 5px;
   }
-  
+
   p, ul, ol, li{
     a{
       // text-decoration: revert;
       color: #380339;
       // text-underline-offset: 3px;
       font-weight: bold;
-      
-    }  
+
+    }
     a:after{
       padding-right: 1em;
       content: "";
@@ -33,14 +33,14 @@
       background-size: 100%;
       // width: 15px;
       // height: 15px;
-    }  
-  }  
+    }
+  }
 
   #footer{
     a{
-    text-decoration: revert;  
+    text-decoration: revert;
     }
-  }  
+  }
 
   img, iframe{
     margin: auto !important;
