@@ -22,7 +22,7 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@tailwindcss/typography": "^0.5.19",
-    "escience_theme": "^0.0.4",
+    "escience_theme": "^0.1.0",
     "remark-directive": "^4.0.0",
     "remark-sectionize": "^2.1.0",
     "reveal.js": "~5.2.1"
