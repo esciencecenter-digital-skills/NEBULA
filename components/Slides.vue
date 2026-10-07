@@ -48,6 +48,8 @@ import RevealNotes from "reveal.js/plugin/notes/notes.js";
 import Search from "reveal.js/plugin/search/search.esm.js";
 import Escience from "escience_theme/escience_5.1.0.esm.js";
 
+const revealRef = ref(null);
+
 onMounted(() => {
   console.log("Slides Mounted");
 
@@ -60,6 +62,7 @@ onMounted(() => {
     import("reveal.js").then((revealModule) => {
       import("reveal.js/plugin/math/math.esm.js").then((RevealMath) => {
         const deck = new revealModule.default();
+        revealRef.value = deck;
         deck.initialize({
           controls: true,
           progress: true,
@@ -72,6 +75,13 @@ onMounted(() => {
         });
       });
     });
+  }
+});
+
+onUnmounted(() => {
+  if (revealRef.value && revealRef.value.destroy) {
+    // https://revealjs.com/initialization/#destroy
+    revealRef.value.destroy();
   }
 });
 </script>
