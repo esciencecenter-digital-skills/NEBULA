@@ -43,7 +43,7 @@ if(config.organizationLogo) {
   // baseURL.
   //
   // Possibly relevant issue: https://github.com/nuxt/nuxt/issues/30850
-  
+
   console.log("NEBULA_PRERENDER =", process.env.NEBULA_PRERENDER)
   if(process.env.NEBULA_PRERENDER === "TRUE") {
     config.organizationLogo = path.join("/", config.baseURL, config.organizationLogo);
@@ -64,6 +64,11 @@ if(!config.style) {
 export default defineNuxtConfig({
   runtimeConfig: {
     public: config,
+  },
+
+  features: {
+    // this prevents Tailwind from being inlined twice, which messes up e.g. list styles
+    inlineStyles: false
   },
 
   devtools: {
@@ -97,7 +102,7 @@ export default defineNuxtConfig({
 
     sources: {
       local_fs: {
-        prefix: `/`, 
+        prefix: `/`,
         driver: `fs`,
         base: `${process.env.CONTENT_PATH}`
       }
