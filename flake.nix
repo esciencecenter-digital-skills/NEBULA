@@ -17,6 +17,7 @@
             nodejs
           ];
 
+          # path of the lesson to render
           CONTENT_PATH="../research-software-support";
         };
       }
