@@ -46,9 +46,19 @@ import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
 
 import RevealNotes from "reveal.js/plugin/notes/notes.js";
 import Search from "reveal.js/plugin/search/search.esm.js";
-import Escience from "escience_theme/escience_5.1.0.esm.js";
+import Escience from "escience_theme";
 
 const revealRef = ref(null);
+
+// Theme styles are imported dynamically so they load with a deck only. A
+// static import would put them in the CSS chunk of every chapter page,
+// exercises included. Loaded one after another because order matters:
+// escience.css overrides the black theme.
+async function loadThemeStyles() {
+  await import("reveal.js/dist/theme/black.css");
+  await import("reveal.js/plugin/highlight/monokai.css");
+  await import("escience_theme/escience.css");
+}
 
 onMounted(() => {
   console.log("Slides Mounted");
@@ -59,7 +69,7 @@ onMounted(() => {
   // the other plugins causes a "Plugin not found" error if the page
   // is reloaded. Therefore it is also imported async here.
   if (process.browser) {
-    import("reveal.js").then((revealModule) => {
+    loadThemeStyles().then(() => import("reveal.js")).then((revealModule) => {
       import("reveal.js/plugin/math/math.esm.js").then((RevealMath) => {
         const deck = new revealModule.default();
         revealRef.value = deck;
