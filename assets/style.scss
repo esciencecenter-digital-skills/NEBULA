@@ -45,4 +45,33 @@
   img, iframe{
     margin: auto !important;
   }
+
+  // Start of code made by Google AI
+  /* Hide any element inside body that is NOT .reveal, does NOT contain .reveal, and is NOT inside .reveal */
+  html.is-speaker-receiver body *:not(.reveal):not(:has(.reveal)):not(.reveal *) {
+    display: none !important;
+  }
+
+  /* Strip spacing/layout constraints from the ancestor wrappers (#__nuxt, layout divs) */
+  html.is-speaker-receiver body,
+  html.is-speaker-receiver body *:has(.reveal) {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    transform: none !important;
+  }
+
+  /* Force the reveal container itself to fill the preview window */
+  html.is-speaker-receiver .reveal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+  }
+  // End of code made by Google AI
 }
